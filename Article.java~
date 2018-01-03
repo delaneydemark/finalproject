@@ -10,15 +10,4 @@ public class Article{
     private String brand;
     private String material;
     private String fileName;
-
-    public Article(String f, String s, String c, String p, String o, String d,
-		   String b, String m){
-	filename = f;
-	size = s;
-	category = c;
-	price = Double.parseDouble(p);
-	brand = b;
-	material = m;
-	
-    }
 }
