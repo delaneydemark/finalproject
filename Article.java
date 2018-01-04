@@ -118,9 +118,9 @@ public class Article{
     }
     
     public String toString(){
-    	return getCategory() + getSize() + "" + getOccasion() + "" + getColor() + 
-    			getBrand() + getMaterial() + "" + getPrice() + "" + getDates() +
-    			getFileName();
+    	return getCategory() + "," + getSize() + "," + getOccasion() + "," + getColor() + 
+    			"," + getBrand() + "," + getMaterial() + "," + getPrice() + "," + getDates() +
+    			"," + getFileName();
     }
     
 }
