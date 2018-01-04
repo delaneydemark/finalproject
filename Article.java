@@ -16,15 +16,15 @@ public class Article{
 		   String p, String d, String f){
 		category = ca;
 		size = s;
-		// for now, when the user puts in co,o,d they have to put a space in between
-		// splitting the occasion string on whitespace which creates an array
-		String occ[]= o.split("\\s+");
+		// for now, when the user puts in co,o,d they have to put a comma in between
+		// splitting the occasion string on commas which creates an array
+		String occ[]= o.split(",");
 		// adding each of the occasions to the arraylist 
 		for (int i = 0; i<occ.length; i++){
 			occasion.add(occ[i]);
 		}
-		// splitting the color string on whitespace which creates an array
-		String col[] = co.split("\\s+");
+		// splitting the color string on commas which creates an array
+		String col[] = co.split(",");
 		// adding each of the colors to the color arraylist
 		for (int i = 0; i<col.length; i++){
 			color.add(col[i]);
@@ -33,8 +33,8 @@ public class Article{
 		material = m;
 		// price is entered by the user as a string, it's converted to a double
 		price = Double.parseDouble(p);
-		// splitting the dates string on whitespace which creates an array
-		String date[] = d.split("\\s+");
+		// splitting the dates string on a comma which creates an array
+		String date[] = d.split(",");
 		// adding each of the dates to the dates arraylist
 		for (int i = 0; i<date.length; i++){
 			dates.add(date[i]);
