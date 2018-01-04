@@ -20,9 +20,17 @@ public class Article{
 		for (int i = 0; i<occ.length; i++){
 			occasion.add(occ[i]);
 		}
+		String[] col = co.split("\\s");
+		for (int i = 0; i<col.length; i++){
+			color.add(col[i]);
+		}
 		brand = b;
 		material = b;
 		price = Double.parseDouble(p);
+		String[] date = d.split("\\s");
+		for (int i = 0; i<date.length; i++){
+			dates.add(date[i]);
+		}
 		fileName = f; 
 	
     }
