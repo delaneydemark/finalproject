@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Article{
 
+
     private String category;
     private String size;
     private ArrayList<String> occasion = new ArrayList<String>();
@@ -31,8 +32,11 @@ public class Article{
 		}
 		brand = b;
 		material = m;
+		// if user doesn't put a price, nothing happens
+		if (!p.equals("")){
 		// price is entered by the user as a string, it's converted to a double
 		price = Double.parseDouble(p);
+		}
 		// splitting the dates string on a comma which creates an array
 		String date[] = d.split(",");
 		// adding each of the dates to the dates arraylist
@@ -111,6 +115,12 @@ public class Article{
     }
     private void setFileName(String f){
     	fileName = f;
+    }
+    
+    public String toString(){
+    	return getCategory() + getSize() + "" + getOccasion() + "" + getColor() + 
+    			getBrand() + getMaterial() + "" + getPrice() + "" + getDates() +
+    			getFileName();
     }
     
 }
