@@ -74,6 +74,8 @@ public class ArticleAddScreen extends JFrame implements ActionListener{
 
   public void actionPerformed(ActionEvent e){
     String s = e.getActionCommand();
+    String filename = "";
+    boolean uploaded = false;
     //check if they clicked back...return to homescreen
     if(s.equals("Back")){
       System.out.println("Go Back");
@@ -82,9 +84,12 @@ public class ArticleAddScreen extends JFrame implements ActionListener{
     //check if they clicked save...create new article with provided info
     if(s.equals("Save")){
       System.out.println("Save");
-      //****create new article using given data
+      //create new article using given data
+      Article art = new Article(categoryText.getText(),sizeText.getText(),occasionText.getText(),colorText.getText(),brandText.getText(),materialText.getText(),priceText.getText(),dateText.getText(),filename);
       //print article
+      System.out.println(art);
       //call addArticle using new article
+      //go to ArticleDisplayScreen
     }
     //\\\\check if they clicked upload...save the image file
     if(s.equals("Upload...")){
@@ -92,9 +97,10 @@ public class ArticleAddScreen extends JFrame implements ActionListener{
       JFileChooser chooser = new JFileChooser();
       chooser.showOpenDialog(null);
       File f = chooser.getSelectedFile();
-      String filename = f.getAbsolutePath();
+      filename = f.getAbsolutePath();
       image = new JLabel();
       screen.add(image);
+      uploaded = true;
       try{
         ImageIcon i = new ImageIcon(editImage(120,120,ImageIO.read(new File(filename))));
         image.setIcon(i);
