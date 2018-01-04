@@ -2,39 +2,6 @@ import java.util.ArrayList;
 
 public class Article{
 
-	public static void main(String[] args){
-		Article test = new Article("Shirt", "Small", "Evening Formal", "Red Black", "Zara",
-						"Silk", "95.00", "1/1/18 1/2/18 1/3/18", "test.jpg");
-		System.out.println(test.getCategory());
-		System.out.println(test.getSize());
-		System.out.println(test.getOccasion());
-		System.out.println(test.getColor());
-		System.out.println(test.getBrand());
-		System.out.println(test.getMaterial());
-		System.out.println(test.getPrice());
-		System.out.println(test.getDates());
-		System.out.println(test.getFileName());
-		
-		test.setCategory("Pants");
-		test.setSize("Medium");
-		test.setOccasion("Party");
-		test.setColor("Blue");
-		test.setBrand("J Crew");
-		test.setMaterial("Velvet");
-		test.setPrice("100.00");
-		test.setDates("1/4/18");
-		test.setFileName("testOne.jpg");
-		
-		System.out.println(test.getCategory());
-		System.out.println(test.getSize());
-		System.out.println(test.getOccasion());
-		System.out.println(test.getColor());
-		System.out.println(test.getBrand());
-		System.out.println(test.getMaterial());
-		System.out.println(test.getPrice());
-		System.out.println(test.getDates());
-		System.out.println(test.getFileName());
-	}
     private String category;
     private String size;
     private ArrayList<String> occasion = new ArrayList<String>();
@@ -56,16 +23,19 @@ public class Article{
 		for (int i = 0; i<occ.length; i++){
 			occasion.add(occ[i]);
 		}
-		// same for colors
+		// splitting the color string on whitespace which creates an array
 		String col[] = co.split("\\s+");
+		// adding each of the colors to the color arraylist
 		for (int i = 0; i<col.length; i++){
 			color.add(col[i]);
 		}
 		brand = b;
 		material = m;
+		// price is entered by the user as a string, it's converted to a double
 		price = Double.parseDouble(p);
-		// same for dates
+		// splitting the dates string on whitespace which creates an array
 		String date[] = d.split("\\s+");
+		// adding each of the dates to the dates arraylist
 		for (int i = 0; i<date.length; i++){
 			dates.add(date[i]);
 		}
@@ -90,6 +60,8 @@ public class Article{
     public ArrayList<String> getOccasion(){
     	return occasion;
     }
+     /* adding the occasion to the arraylist,
+    not deleting and replacing with new*/
     private void setOccasion(String o){
     	occasion.add(o);
     }
@@ -97,6 +69,8 @@ public class Article{
     public ArrayList<String> getColor(){
     	return color;
     }
+     /* adding the color to the arraylist,
+    not deleting and replacing with new*/
     private void setColor(String c){
     	color.add(c);
     }
@@ -118,6 +92,7 @@ public class Article{
     public double getPrice(){
     	return price;
     }
+    // gui will take the user input as a string, so convert it to a double
     private void setPrice(String p){
     	price = Double.parseDouble(p);
     }
@@ -125,6 +100,8 @@ public class Article{
     public ArrayList<String> getDates(){
     	return dates;
     }
+     /* adding the date to the arraylist,
+    not deleting and replacing with new*/
     private void setDates(String d){
     	dates.add(d);
     }
