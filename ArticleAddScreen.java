@@ -92,13 +92,12 @@ public class ArticleAddScreen extends JFrame implements ActionListener{
     if(s.equals("Save") && uploaded){
       System.out.println("Save");
       //save photo to new location
-      try{ImageIO.write(photo, "jpg", new File(name));
+      try{ImageIO.write(photo, "jpg", new File("/pics/"+name));
       }catch(IOException exc){
         exc.printStackTrace();
       }
-      //change filename to that location
       //create new article using given data
-      Article art = new Article(categoryText.getText(),sizeText.getText(),occasionText.getText(),colorText.getText(),brandText.getText(),materialText.getText(),priceText.getText(),dateText.getText(),filename);
+      Article art = new Article(categoryText.getText(),sizeText.getText(),occasionText.getText(),colorText.getText(),brandText.getText(),materialText.getText(),priceText.getText(),dateText.getText(),name);
       //print article
       System.out.println(art);
       //call addArticle using new article
