@@ -14,6 +14,26 @@ public class Article{
 		System.out.println(test.getPrice());
 		System.out.println(test.getDates());
 		System.out.println(test.getFileName());
+		
+		test.setCategory("Pants");
+		test.setSize("Medium");
+		test.setOccasion("Party");
+		test.setColor("Blue");
+		test.setBrand("J Crew");
+		test.setMaterial("Velvet");
+		test.setPrice("100.00");
+		test.setDates("1/4/18");
+		test.setFileName("testOne.jpg");
+		
+		System.out.println(test.getCategory());
+		System.out.println(test.getSize());
+		System.out.println(test.getOccasion());
+		System.out.println(test.getColor());
+		System.out.println(test.getBrand());
+		System.out.println(test.getMaterial());
+		System.out.println(test.getPrice());
+		System.out.println(test.getDates());
+		System.out.println(test.getFileName());
 	}
     private String category;
     private String size;
@@ -98,8 +118,8 @@ public class Article{
     public double getPrice(){
     	return price;
     }
-    private void setPrice(double p){
-    	price = p;
+    private void setPrice(String p){
+    	price = Double.parseDouble(p);
     }
     
     public ArrayList<String> getDates(){
