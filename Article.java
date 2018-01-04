@@ -63,5 +63,39 @@ public class Article{
     	color.add(c);
     }
     
+    public String getBrand(){
+    	return brand;
+    }
+    private void setBrand(String b){
+    	brand = b;
+    }
+    
+    public String getMaterial(){
+    	return material;
+    }
+    private void setMaterial(String m){
+    	material = m;
+    }
+    
+    public double getPrice(){
+    	return price;
+    }
+    private void setPrice(double p){
+    	price = p;
+    }
+    
+    public ArrayList<String> getDates(){
+    	return dates;
+    }
+    private void setDates(String d){
+    	dates.add(d);
+    }
+    
+    public String getFileName(){
+    	return fileName;
+    }
+    private void setFileName(String f){
+    	fileName = f;
+    }
     
 }
