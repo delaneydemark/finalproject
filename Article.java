@@ -1,14 +1,28 @@
 import java.util.ArrayList;
 
 public class Article{
+
+	public static void main(String[] args){
+		Article test = new Article("Shirt", "Small", "Evening Formal", "Red Black", "Zara",
+						"Silk", "95.00", "1/1/18 1/2/18 1/3/18", "test.jpg");
+		System.out.println(test.getCategory());
+		System.out.println(test.getSize());
+		System.out.println(test.getOccasion());
+		System.out.println(test.getColor());
+		System.out.println(test.getBrand());
+		System.out.println(test.getMaterial());
+		System.out.println(test.getPrice());
+		System.out.println(test.getDates());
+		System.out.println(test.getFileName());
+	}
     private String category;
-    private String size
-    private ArrayList<String> occassion;
-    private ArrayList<String> color;
+    private String size;
+    private ArrayList<String> occasion = new ArrayList<String>();
+    private ArrayList<String> color = new ArrayList<String>();
     private String brand;
     private String material;
     private double price;
-    private ArrayList<String> dates;
+    private ArrayList<String> dates = new ArrayList<String>();
     private String fileName;
 
     public Article(String ca, String s, String o, String co, String b, String m,
@@ -16,18 +30,22 @@ public class Article{
 		category = ca;
 		size = s;
 		// for now, when the user puts in co,o,d they have to put a space in between
-		String[] occ = o.split("\\s");
+		// splitting the occasion string on whitespace which creates an array
+		String occ[]= o.split("\\s+");
+		// adding each of the occasions to the arraylist 
 		for (int i = 0; i<occ.length; i++){
-			occassion.add(occ[i]);
+			occasion.add(occ[i]);
 		}
-		String[] col = co.split("\\s");
+		// same for colors
+		String col[] = co.split("\\s+");
 		for (int i = 0; i<col.length; i++){
 			color.add(col[i]);
 		}
 		brand = b;
-		material = b;
+		material = m;
 		price = Double.parseDouble(p);
-		String[] date = d.split("\\s");
+		// same for dates
+		String date[] = d.split("\\s+");
 		for (int i = 0; i<date.length; i++){
 			dates.add(date[i]);
 		}
@@ -49,11 +67,11 @@ public class Article{
     	size = s;
     }
     
-    public ArrayList<String> getOccassion(){
-    	return occassion;
+    public ArrayList<String> getOccasion(){
+    	return occasion;
     }
     private void setOccasion(String o){
-    	occassion.add(o);
+    	occasion.add(o);
     }
     
     public ArrayList<String> getColor(){
