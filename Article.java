@@ -18,7 +18,7 @@ public class Article{
 		// for now, when the user puts in co,o,d they have to put a space in between
 		String[] occ = o.split("\\s");
 		for (int i = 0; i<occ.length; i++){
-			occasion.add(occ[i]);
+			occassion.add(occ[i]);
 		}
 		String[] col = co.split("\\s");
 		for (int i = 0; i<col.length; i++){
@@ -34,4 +34,34 @@ public class Article{
 		fileName = f; 
 	
     }
+    
+    public String getCategory(){
+    	return category;
+    }
+    private void setCategory(String c){
+    	category = c;
+    }
+    
+    public String getSize(){
+    	return size;
+    }
+    private void setSize(String s){
+    	size = s;
+    }
+    
+    public ArrayList<String> getOccassion(){
+    	return occassion;
+    }
+    private void setOccasion(String o){
+    	occassion.add(o);
+    }
+    
+    public ArrayList<String> getColor(){
+    	return color;
+    }
+    private void setColor(String c){
+    	color.add(c);
+    }
+    
+    
 }
