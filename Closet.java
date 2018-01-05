@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Closet extends JFrame{
   public static void main(String[] args){
     ArticleAddScreen w = new ArticleAddScreen();
@@ -8,6 +10,10 @@ public class Closet extends JFrame{
   
   public Closet(){
   	
+  }
+  
+  public void add(Article art){
+  	clothes.add(art);
   }
   
   
