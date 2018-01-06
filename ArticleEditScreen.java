@@ -37,6 +37,8 @@ public class ArticleEditScreen extends Closet implements ActionListener{
     }
     //check if they clicked edit...go to ArticleEditScreen close current window
     if(s.equals("Save")){
+      // add to arraylist
+      // write to file
       ArticleDisplayScreen w = new ArticleDisplayScreen();
       w.setVisible(true);
       this.dispose();
