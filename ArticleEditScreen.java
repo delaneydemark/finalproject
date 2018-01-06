@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 
 public class ArticleEditScreen extends Closet implements ActionListener{
   private Container screen;

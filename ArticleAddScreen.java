@@ -4,6 +4,9 @@ import java.awt.event.*;
 import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 
 public class ArticleAddScreen extends Closet implements ActionListener{
   private Container screen;
@@ -105,6 +108,7 @@ public class ArticleAddScreen extends Closet implements ActionListener{
       	System.out.println(Article.toString(art));
       }
       // write to csv file
+      writeToCSV("articles.csv");
       //go to ArticleDisplayScreen
       ArticleDisplayScreen w = new ArticleDisplayScreen();
       w.setVisible(true);
