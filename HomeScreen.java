@@ -46,7 +46,7 @@ public class HomeScreen extends Closet implements ActionListener{
     }
     //check if they clicked SuggestOutfitScreen...open new window and close current
     if(s.equals("Suggest Outfits")){
-      SuggestOufitsScreen w = new SuggestOutfitsScreen();
+      SuggestOutfitsScreen w = new SuggestOutfitsScreen();
       w.setVisible(true);
       this.dispose();
     }
