@@ -37,6 +37,12 @@ public class HomeScreen extends Closet implements ActionListener{
 
 
   public void actionPerformed(ActionEvent e){
-
+    String s = e.getActionCommand();
+    //check if they clicked Add...go to ArticleAddScreen and close current window
+    if(s.equals("Add")){
+      System.out.println("add");
+      ArticleAddScreen w = new ArticleAddScreen();
+      w.setVisible(true);
+    }
   }
 }
