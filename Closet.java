@@ -24,7 +24,7 @@ public class Closet extends JFrame{
   	
   }
   
-  public void add(Article art){
+  public static void add(Article art, ArrayList<Article> clothes){
   	clothes.add(art);
   }
   

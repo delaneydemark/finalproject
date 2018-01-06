@@ -102,7 +102,7 @@ public class ArticleAddScreen extends Closet implements ActionListener{
       //print article
       System.out.println(art);
       //call addArticle using new article
-      add(art);
+      Closet.add(art,clothes);
       //print out contents of arraylist
       for (int i = 0; i<clothes.size(); i++){
       	System.out.println(Article.toString(art));
