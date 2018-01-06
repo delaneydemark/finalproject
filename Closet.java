@@ -1,4 +1,10 @@
 import java.util.ArrayList;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.awt.image.BufferedImage;
+import javax.imageio.*;
 
 public class Closet extends JFrame{
   public static void main(String[] args){
@@ -6,7 +12,7 @@ public class Closet extends JFrame{
     w.setVisible(true);
   }
   
-  private ArrayList<Article> clothes = new ArrayList<Article>();
+  public ArrayList<Article> clothes = new ArrayList<Article>();
   
   public Closet(){
   	

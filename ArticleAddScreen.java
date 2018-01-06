@@ -5,19 +5,18 @@ import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
 
-public class ArticleAddScreen extends JFrame implements ActionListener{
+public class ArticleAddScreen extends Closet implements ActionListener{
   private Container screen;
   private JButton back, save, uploadImage;
   private JTextField categoryText, sizeText, occasionText, colorText, brandText, materialText, priceText, dateText;
   private JLabel image, categoryLabel, sizeLabel, occasionLabel, colorLabel, brandLabel, materialLabel, priceLabel, dateLabel;
 
-  private String filename,name;
+  private String filename;
   private boolean uploaded;
   private BufferedImage photo;
 
   public ArticleAddScreen(){
     filename = "";
-    name = "";
     uploaded = false;
     photo = null;
     //make generic window
@@ -80,6 +79,7 @@ public class ArticleAddScreen extends JFrame implements ActionListener{
     screen.add(dateText);
   }
 
+
   public void actionPerformed(ActionEvent e){
     String s = e.getActionCommand();
 
@@ -91,16 +91,16 @@ public class ArticleAddScreen extends JFrame implements ActionListener{
     //check if they clicked save...create new article with provided info
     if(s.equals("Save") && uploaded){
       System.out.println("Save");
-      //save photo to new location
-      try{ImageIO.write(photo, "jpg", new File("/pics/"+name));
-      }catch(IOException exc){
-        exc.printStackTrace();
-      }
       //create new article using given data
-      Article art = new Article(categoryText.getText(),sizeText.getText(),occasionText.getText(),colorText.getText(),brandText.getText(),materialText.getText(),priceText.getText(),dateText.getText(),name);
+      Article art = new Article(categoryText.getText(),sizeText.getText(),occasionText.getText(),colorText.getText(),brandText.getText(),materialText.getText(),priceText.getText(),dateText.getText(),filename);
       //print article
       System.out.println(art);
       //call addArticle using new article
+      add(art);
+      //print out contents of arraylist
+      for (int i = 0; i<clothes.size(); i++){
+      	System.out.println(Article.toString(art));
+      }
       //go to ArticleDisplayScreen
     }
     //\\\\check if they clicked upload...save the image file
@@ -110,7 +110,6 @@ public class ArticleAddScreen extends JFrame implements ActionListener{
       chooser.showOpenDialog(null);
       File f = chooser.getSelectedFile();
       filename = f.getAbsolutePath();
-      name = f.getName();
       image = new JLabel();
       screen.add(image);
       uploaded = true;
@@ -138,9 +137,6 @@ public class ArticleAddScreen extends JFrame implements ActionListener{
     return i;
   }
 
-  public void addArticle(Article item){
-    //adds new article to the ArrayList Closet
-
-  }
+  
 
 }

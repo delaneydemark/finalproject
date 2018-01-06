@@ -117,10 +117,10 @@ public class Article{
     	fileName = f;
     }
     
-    public String toString(){
-    	return getCategory() + "," + getSize() + "," + getOccasion() + "," + getColor() + 
-    			"," + getBrand() + "," + getMaterial() + "," + getPrice() + "," + getDates() +
-    			"," + getFileName();
+    public static String toString(Article art){
+    	return art.getCategory() + "," + art.getSize() + "," + art.getOccasion() + "," + art.getColor() + 
+    			"," + art.getBrand() + "," + art.getMaterial() + "," + art.getPrice() + "," + art.getDates() +
+    			"," + art.getFileName();
     }
     
 }
