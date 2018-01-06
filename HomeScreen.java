@@ -43,6 +43,7 @@ public class HomeScreen extends Closet implements ActionListener{
       System.out.println("add");
       ArticleAddScreen w = new ArticleAddScreen();
       w.setVisible(true);
+      this.dispose();
     }
   }
 }
