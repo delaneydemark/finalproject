@@ -87,6 +87,9 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     if(s.equals("Back")){
       System.out.println("Go Back");
       //GO BACK TO HOME SCREEN
+      HomeScreen w = new HomeScreen();
+      w.setVisible(true);
+      this.dispose();
     }
     //check if they clicked save...create new article with provided info
     if(s.equals("Save") && uploaded){
@@ -103,7 +106,7 @@ public class ArticleAddScreen extends Closet implements ActionListener{
       }
       //go to ArticleDisplayScreen
     }
-    //\\\\check if they clicked upload...save the image file
+    //check if they clicked upload...save the image file
     if(s.equals("Upload...") && !uploaded){
       //allow user to select file
       JFileChooser chooser = new JFileChooser();
