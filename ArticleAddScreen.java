@@ -106,7 +106,7 @@ public class ArticleAddScreen extends Closet implements ActionListener{
       }
       //go to ArticleDisplayScreen
       ArticleDisplayScreen w = new ArticleDisplayScreen();
-      w.setVisible();
+      w.setVisible(true);
       this.dispose();
     }
     //check if they clicked upload...save the image file
