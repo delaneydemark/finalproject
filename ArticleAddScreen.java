@@ -108,7 +108,7 @@ public class ArticleAddScreen extends Closet implements ActionListener{
       	System.out.println(Article.toString(art));
       }
       // write to csv file
-      writeToCSV("articles.csv");
+      writeToCSV("articles.csv", clothes);
       //go to ArticleDisplayScreen
       ArticleDisplayScreen w = new ArticleDisplayScreen();
       w.setVisible(true);

@@ -18,6 +18,8 @@ public class Closet extends JFrame{
   
   public ArrayList<Article> clothes = new ArrayList<Article>();
   
+  
+  
   public Closet(){
   	
   }
@@ -26,7 +28,7 @@ public class Closet extends JFrame{
   	clothes.add(art);
   }
   
-  public static void writeToCSV(String fileN){
+  public static void writeToCSV(String fileN, ArrayList<Article> clothes){
   	FileWriter fileWriter = null;
   	try{
   		fileWriter = new FileWriter(fileN);
@@ -55,8 +57,20 @@ public class Closet extends JFrame{
   			fileWriter.append(Article.toString(clothes.get(i)));
   			fileWriter.append("\n");
   		}
+  		
+  		System.out.println("CSV created successfully!");
+  	}catch(Exception e){
+  		System.out.println("Error in CSV file writer");
+  	}finally{
+  		try{
+  			fileWriter.flush();
+  			fileWriter.close();
+  		}catch(IOException e){
+  			System.out.println("Error in flushing/closing fileWriter");
+  		}
   	}
   }
-  
-  
 }
+  
+  
+
