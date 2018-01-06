@@ -8,7 +8,8 @@ import javax.imageio.*;
 
 public class Closet extends JFrame{
   public static void main(String[] args){
-    ArticleAddScreen w = new ArticleAddScreen();
+    HomeScreen w= new HomeScreen();
+    //ArticleAddScreen w = new ArticleAddScreen();
     w.setVisible(true);
   }
   
