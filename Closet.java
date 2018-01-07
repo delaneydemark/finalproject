@@ -16,17 +16,17 @@ public class Closet extends JFrame{
     w.setVisible(true);
   }
   
-  public ArrayList<Article> clothes = new ArrayList<Article>();
+  public ArrayList<Article> clothes;
   
   
   
   public Closet(){
-  	
+  	clothes = new ArrayList<Article>();
   }
   
-  public static void add(Article art, ArrayList<Article> clothes){
-  	clothes.add(art);
-  }
+  /*public void add(Article art){
+  	this.add(art);
+  }*/
   
   public static void writeToCSV(String fileN, ArrayList<Article> clothes){
   	FileWriter fileWriter = null;

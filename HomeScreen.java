@@ -28,6 +28,10 @@ public class HomeScreen extends Closet implements ActionListener{
     screen.add(suggestOutfits);
     screen.add(add);
     screen.add(filter);
+    
+    for (int i = 0; i<clothes.size(); i++){
+      	System.out.println(Article.toString(clothes.get(i)));
+    }
 
   }
 
