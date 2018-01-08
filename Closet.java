@@ -8,6 +8,8 @@ import javax.imageio.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class Closet extends JFrame{
   public static void main(String[] args){
@@ -16,19 +18,20 @@ public class Closet extends JFrame{
     w.setVisible(true);
   }
   
-  public ArrayList<Article> clothes;
+  private ArrayList<Article> clothes;
   
   
   
   public Closet(){
   	clothes = new ArrayList<Article>();
+  	//read in the CSV into clothes
   }
   
-  /*public void add(Article art){
+  public void add(Article art){
   	this.add(art);
-  }*/
+  }
   
-  public static void writeToCSV(String fileN, ArrayList<Article> clothes){
+  public void writeToCSV(String fileN){
   	FileWriter fileWriter = null;
   	try{
   		fileWriter = new FileWriter(fileN);
