@@ -2,44 +2,67 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.awt.image.BufferedImage;
+import javax.imageio.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 
 public class ArticleDisplayScreen extends Closet implements ActionListener{
-  private Container screen;
-  private JButton back, edit;
+    private Container screen;
+    private JButton back, edit;
+    private BufferedImage photo;
+    private JLabel image, category,size,occasion,color,material,price,dates;
+    private Article art;
 
-  public ArticleDisplayScreen(){
-    //make generic window
-    this.setSize(600,400);
-    this.setLocation(100,100);
-    this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
+    public ArticleDisplayScreen(Article arti){
+	art = arti;
+	//make generic window
+	this.setSize(600,400);
+	this.setLocation(100,100);
+	this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
 
-    screen = this.getContentPane();
-    screen.setLayout(new FlowLayout());
+	screen = this.getContentPane();
+	screen.setLayout(new FlowLayout());
 
-    //create buttons
-    back = new JButton("Back");
-    edit = new JButton("Edit");
+	//create buttons
+	back = new JButton("Back");
+	edit = new JButton("Edit");
 
-    back.addActionListener(this);
-    edit.addActionListener(this);
+	back.addActionListener(this);
+	edit.addActionListener(this);
 
-    screen.add(back);
-    screen.add(edit);
-  }
+	screen.add(back);
+	screen.add(edit);
 
-  public void actionPerformed(ActionEvent e){
-    String s = e.getActionCommand();
-    //check if they clicked back...go to HomeScreen and close current window
-    if(s.equals("Back")){
-      HomeScreen w = new HomeScreen();
-      w.setVisible(true);
-      this.dispose();
+	//upload image
+	image = new JLabel();
+	screen.add(image);
+	try{
+	    photo = ArticleAddScreen.editImage(120,120,ImageIO.read(new File(art.getFileName())));
+	    ImageIcon i = new ImageIcon(photo);
+	    image.setIcon(i);
+	}catch(Exception ex){
+	    ex.printStackTrace();
+	}
+	
+	//set up data displayed
+	
     }
-    //check if they clicked edit...go to ArticleEditScreen close current window
-    if(s.equals("Edit")){
-      ArticleEditScreen w = new ArticleEditScreen();
-      w.setVisible(true);
-      this.dispose();
+
+    public void actionPerformed(ActionEvent e){
+	String s = e.getActionCommand();
+	//check if they clicked back...go to HomeScreen and close current window
+	if(s.equals("Back")){
+	    HomeScreen w = new HomeScreen();
+	    w.setVisible(true);
+	    this.dispose();
+	}
+	//check if they clicked edit...go to ArticleEditScreen close current window
+	if(s.equals("Edit")){
+	    ArticleEditScreen w = new ArticleEditScreen(art);
+	    w.setVisible(true);
+	    this.dispose();
+	}
     }
-  }
 }

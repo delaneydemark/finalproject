@@ -9,8 +9,10 @@ import java.util.List;
 public class ArticleEditScreen extends Closet implements ActionListener{
   private Container screen;
   private JButton back, save;
+    private Article art;
 
-  public ArticleEditScreen(){
+  public ArticleEditScreen(Article arti){
+      art = arti;
     //make generic window
     this.setSize(600,400);
     this.setLocation(100,100);
@@ -42,7 +44,7 @@ public class ArticleEditScreen extends Closet implements ActionListener{
     if(s.equals("Save")){
       // add to arraylist
       // write to file
-      ArticleDisplayScreen w = new ArticleDisplayScreen();
+      ArticleDisplayScreen w = new ArticleDisplayScreen(art);
       w.setVisible(true);
       this.dispose();
     }
