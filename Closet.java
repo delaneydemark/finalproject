@@ -32,9 +32,9 @@ public class Closet extends JFrame{
   		fr = new FileReader("articles.csv");
   		br = new BufferedReader(fr);
   		String currentLine;
-  		String[] lines = new String[clothes.size()];
   		while((currentLine = br.readLine()) != null){
-  			
+  			String article = currentLine.split(",");
+  			 
   			System.out.println(currentLine);
   		}catch(IOException e){
   			e.printStackTrace();
