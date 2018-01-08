@@ -82,7 +82,14 @@ public class ArticleEditScreen extends Closet implements ActionListener{
     screen.add(dateText);
 
     //set textfields to include current data
-
+    categoryText.setText(art.getCategory());
+    sizeText.setText(art.getSize());
+    occasionText.setText(String.join(",",art.getOccasion()));
+    colorText.setText(String.join(",",art.getColor()));
+    brandText.setText(art.getBrand());
+    materialText.setText(art.getMaterial());
+    priceText.setText("" + art.getPrice());
+    dateText.setText(String.join(",",art.getDates()));
   }
 
   public void actionPerformed(ActionEvent e){
@@ -93,10 +100,20 @@ public class ArticleEditScreen extends Closet implements ActionListener{
       w.setVisible(true);
       this.dispose();
     }
-    //check if they clicked edit...go to ArticleEditScreen close current window
+    //check if they clicked save...go to ArticleDisplayScreen close current window
     if(s.equals("Save")){
-      // add to arraylist
+      // edit article in arraylist
+      art.setCategory(categoryText.getText());
+      art.setSize(sizeText.getText());
+      art.setOccasion(occasionText.getText());
+      art.setColor(colorText.getText());
+      art.setBrand(brandText.getText());
+      art.setMaterial(materialText.getText());
+      art.setPrice(priceText.getText());
+      art.setDates(dateText.getText());
       // write to file
+      writeToCSV("articles.csv",clothes);
+      //swap screen
       ArticleDisplayScreen w = new ArticleDisplayScreen(art);
       w.setVisible(true);
       this.dispose();
