@@ -47,12 +47,12 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
 	//set up data displayed
 	category = new JLabel("Category: "+ art.getCategory());
 	size = new JLabel("Size: "+ art.getSize());
-	occasion = new JLabel("Occasion: " + art.getOccasion());
-	color = new JLabel("Color: " + art.getColor());
+	occasion = new JLabel("Occasion: " + String.join(",",art.getOccasion()));
+  color = new JLabel("Color: " + String.join(",",art.getColor()));
 	brand = new JLabel("Brand: " + art.getBrand());
 	material = new JLabel("Material: " + art.getMaterial());
 	price = new JLabel("Price: " + art.getPrice());
-	dates = new JLabel("Date: " + art.getDates());
+  dates = new JLabel("Date: " + String.join(",",art.getDates()));
 
 	
 	screen.add(category);
