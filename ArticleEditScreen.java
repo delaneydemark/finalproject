@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
@@ -13,7 +11,8 @@ public class ArticleEditScreen extends Closet implements ActionListener{
   private JButton back, save;
   private Article art;
   private BufferedImage photo;
-  private JLabel image;
+    private JTextField categoryText, sizeText, occasionText, colorText, brandText, materialText, priceText, dateText;
+  private JLabel image, categoryLabel, sizeLabel, occasionLabel, colorLabel, brandLabel, materialLabel, priceLabel, dateLabel;
 
   public ArticleEditScreen(Article arti){
       art = arti;
@@ -46,6 +45,44 @@ public class ArticleEditScreen extends Closet implements ActionListener{
     }catch(Exception ex){
       ex.printStackTrace();
     }
+
+    //set up textfields for data
+    categoryLabel = new JLabel("Category: ");
+    categoryText = new JTextField(15);
+    sizeLabel = new JLabel("Size: ");
+    sizeText = new JTextField(15);
+    occasionLabel = new JLabel("Occasion: ");
+    occasionText = new JTextField(15);
+    colorLabel = new JLabel("Color: ");
+    colorText = new JTextField(15);
+    brandLabel = new JLabel("Brand: ");
+    brandText = new JTextField(15);
+    materialLabel = new JLabel("Material: ");
+    materialText = new JTextField(15);
+    priceLabel = new JLabel("Price: ");
+    priceText = new JTextField(15);
+    dateLabel = new JLabel("Date: ");
+    dateText = new JTextField(15);
+
+    screen.add(categoryLabel);
+    screen.add(categoryText);
+    screen.add(sizeLabel);
+    screen.add(sizeText);
+    screen.add(occasionLabel);
+    screen.add(occasionText);
+    screen.add(colorLabel);
+    screen.add(colorText);
+    screen.add(brandLabel);
+    screen.add(brandText);
+    screen.add(materialLabel);
+    screen.add(materialText);
+    screen.add(priceLabel);
+    screen.add(priceText);
+    screen.add(dateLabel);
+    screen.add(dateText);
+
+    //set textfields to include current data
+
   }
 
   public void actionPerformed(ActionEvent e){
