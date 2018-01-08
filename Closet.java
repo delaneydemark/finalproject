@@ -25,6 +25,21 @@ public class Closet extends JFrame{
   public Closet(){
   	clothes = new ArrayList<Article>();
   	//read in the CSV into clothes
+  	BufferedReader br = null;
+  	FileReader fr = null;
+  	
+  	try {
+  		fr = new FileReader("articles.csv");
+  		br = new BufferedReader(fr);
+  		String currentLine;
+  		String[] lines = new String[clothes.size()];
+  		while((currentLine = br.readLine()) != null){
+  			
+  			System.out.println(currentLine);
+  		}catch(IOException e){
+  			e.printStackTrace();
+  		}
+  	}
   }
   
   public void add(Article art){
