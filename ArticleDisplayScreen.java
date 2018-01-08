@@ -12,7 +12,7 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
     private Container screen;
     private JButton back, edit;
     private BufferedImage photo;
-    private JLabel image, category,size,occasion,color,material,price,dates;
+    private JLabel image, category,size,occasion,color,brand,material,price,dates;
     private Article art;
 
     public ArticleDisplayScreen(Article arti){
@@ -47,7 +47,24 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
 	}
 	
 	//set up data displayed
+	category = new JLabel("Category: "+ art.getCategory());
+	size = new JLabel("Size: "+ art.getSize());
+	occasion = new JLabel("Occasion: " + art.getOccasion());
+	color = new JLabel("Color: " + art.getColor());
+	brand = new JLabel("Brand: " + art.getBrand());
+	material = new JLabel("Material: " + art.getMaterial());
+	price = new JLabel("Price: " + art.getPrice());
+	dates = new JLabel("Date: " + art.getDates());
+
 	
+	screen.add(category);
+	screen.add(size);
+	screen.add(occasion);
+	screen.add(color);
+	screen.add(brand);
+	screen.add(material);
+	screen.add(price);
+	screen.add(dates);
     }
 
     public void actionPerformed(ActionEvent e){
