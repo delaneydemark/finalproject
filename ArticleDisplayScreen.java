@@ -4,8 +4,6 @@ import java.awt.event.*;
 import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 
 public class ArticleDisplayScreen extends Closet implements ActionListener{
