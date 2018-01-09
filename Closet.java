@@ -40,15 +40,20 @@ public class Closet extends JFrame{
   			String color = article[3].substring(1,article[3].length()-1);
   			String brand = article[4];
   			String material = article[5];
-  			String = article[6];
+  			String price = article[6];
   			String dates = article[7].substring(1,article[7].length()-1);
   			String fileName = article[8];
-  			
+  			Article art = new Article(category, size, occasion, color, brand, material,
+  									price, dates, fileName);
+  			add(art);
   			
   			System.out.println(currentLine);
-  		}catch(IOException e){
-  			e.printStackTrace();
   		}
+  	}catch(IOException e){
+  			e.printStackTrace();
+  	}
+  	for(int i = 0; i<clothes.size(); i++){
+  		System.out.println(Article.toString(clothes.get(i)));
   	}
   }
   
@@ -99,7 +104,7 @@ public class Closet extends JFrame{
   	}
   }
   
-  public ArrayList<String> stringToArrayList(){
+  /*public ArrayList<String> stringToArrayList(){
   	String str = this.substring(1, this.length()-1);
   	String arr[] = str.split(",");
   	ArrayList<String> res = new ArrayList<String>();
@@ -107,7 +112,7 @@ public class Closet extends JFrame{
   		res.set(i,arr[i]);
   	}
   	return res;
-  }
+  }*/
 }
   
   
