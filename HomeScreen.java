@@ -6,6 +6,8 @@ import java.io.*;
 public class HomeScreen extends Closet implements ActionListener{
   private Container screen;
   private JButton suggestOutfits, add, filter;
+    private JLabel image;
+    private BufferedImage photo;
 
   public HomeScreen(){
     //make generic window
@@ -33,7 +35,24 @@ public class HomeScreen extends Closet implements ActionListener{
   }
 
   public HomeScreen(String filter){
-    //do something
+    //loop through lenght of closet and display photos
+
+      //CREATE AN ARRAY LIST OF JLABELS. AND LOOP THROUGH JLABELS.
+      photo = new BufferedImage;
+      image = new JLabel;
+      ArrayList<JLabel> images = new ArrayList<JLabel>();
+      for(int i = 0;i < clothes.len();i++){
+	  //print the photo of corresponding article
+	  Article art = clothes.get(i);
+	  JLabel  = new JLabel;
+	screen.add();
+	try{
+	    photo = ArticleAddScreen.editImage(120,120,ImageIO.read(new File(art.getFileName())));
+	    ImageIcon i = new ImageIcon(photo);
+	    image.setIcon(i);
+	}catch(Exception ex){
+	    ex.printStackTrace();
+      }
   }
 
 

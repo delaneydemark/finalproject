@@ -63,6 +63,14 @@ public class Closet extends JFrame{
   public void remove(Article art){
   	clothes.remove(art);
   }
+
+    public int len(){
+	return clothes.size();
+    }
+
+    public Article get(int n){
+	return clothes.get(n);
+    }
   
   public void clear(){
   	clothes.clear();
