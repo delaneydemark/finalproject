@@ -50,14 +50,14 @@ public class Article{
     public String getCategory(){
     	return category;
     }
-    private void setCategory(String c){
+    public void setCategory(String c){
     	category = c;
     }
     
     public String getSize(){
     	return size;
     }
-    private void setSize(String s){
+    public void setSize(String s){
     	size = s;
     }
     
@@ -66,7 +66,7 @@ public class Article{
     }
      /* adding the occasion to the arraylist,
     not deleting and replacing with new*/
-    private void setOccasion(String o){
+    public void setOccasion(String o){
     	occasion.add(o);
     }
     
@@ -75,21 +75,21 @@ public class Article{
     }
      /* adding the color to the arraylist,
     not deleting and replacing with new*/
-    private void setColor(String c){
+    public void setColor(String c){
     	color.add(c);
     }
     
     public String getBrand(){
     	return brand;
     }
-    private void setBrand(String b){
+    public void setBrand(String b){
     	brand = b;
     }
     
     public String getMaterial(){
     	return material;
     }
-    private void setMaterial(String m){
+    public void setMaterial(String m){
     	material = m;
     }
     
@@ -97,7 +97,7 @@ public class Article{
     	return price;
     }
     // gui will take the user input as a string, so convert it to a double
-    private void setPrice(String p){
+    public void setPrice(String p){
     	price = p;
     }
     
@@ -106,14 +106,14 @@ public class Article{
     }
      /* adding the date to the arraylist,
     not deleting and replacing with new*/
-    private void setDates(String d){
+    public void setDates(String d){
     	dates.add(d);
     }
     
     public String getFileName(){
     	return fileName;
     }
-    private void setFileName(String f){
+    public void setFileName(String f){
     	fileName = f;
     }
     
