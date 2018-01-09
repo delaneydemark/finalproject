@@ -9,7 +9,7 @@ public class Article{
     private ArrayList<String> color = new ArrayList<String>();
     private String brand;
     private String material;
-    private double price;
+    private String price;
     private ArrayList<String> dates = new ArrayList<String>();
     private String fileName;
 
@@ -34,8 +34,8 @@ public class Article{
 		material = m;
 		// if user doesn't put a price, nothing happens
 		if (!p.equals("")){
-		// price is entered by the user as a string, it's converted to a double
-		price = Double.parseDouble(p);
+		// price is entered by the user as a string, it's converted to an int
+		price = p;
 		}
 		// splitting the dates string on a comma which creates an array
 		String date[] = d.split(",");
@@ -93,12 +93,12 @@ public class Article{
     	material = m;
     }
     
-    public double getPrice(){
+    public String getPrice(){
     	return price;
     }
     // gui will take the user input as a string, so convert it to a double
     public void setPrice(String p){
-    	price = Double.parseDouble(p);
+    	price = p;
     }
     
     public ArrayList<String> getDates(){

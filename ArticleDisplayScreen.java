@@ -44,7 +44,7 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
 	    ex.printStackTrace();
 	}
 	
-	//set up data displayed
+f	//set up data displayed
 	category = new JLabel("Category: "+ art.getCategory());
 	size = new JLabel("Size: "+ art.getSize());
 	occasion = new JLabel("Occasion: " + String.join(",",art.getOccasion()));
@@ -81,3 +81,4 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
 	}
     }
 }
+

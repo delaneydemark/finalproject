@@ -25,10 +25,39 @@ public class Closet extends JFrame{
   public Closet(){
   	clothes = new ArrayList<Article>();
   	//read in the CSV into clothes
+  	BufferedReader br = null;
+  	FileReader fr = null;
+  	
+  	try {
+  		fr = new FileReader("articles.csv");
+  		br = new BufferedReader(fr);
+  		String currentLine;
+  		while((currentLine = br.readLine()) != null){
+  			String article[] = currentLine.split(",");
+  			String category = article[0];
+  			String size = article[1];
+  			String occasion = article[2].substring(1,article[2].length()-1);
+  			String color = article[3].substring(1,article[3].length()-1);
+  			String brand = article[4];
+  			String material = article[5];
+  			String price = article[6];
+  			String dates = article[7].substring(1,article[7].length()-1);
+  			String fileName = article[8];
+  			Article art = new Article(category, size, occasion, color, brand, material,
+  									price, dates, fileName);
+  			add(art);
+  			
+  		}
+  	}catch(IOException e){
+  			e.printStackTrace();
+  	}
+  	for(int i = 0; i<clothes.size(); i++){
+  		System.out.println(Article.toString(clothes.get(i)));
+  	}
   }
   
   public void add(Article art){
-  	this.add(art);
+  	clothes.add(art);
   }
   
   public void writeToCSV(String fileN){
@@ -37,7 +66,7 @@ public class Closet extends JFrame{
   		fileWriter = new FileWriter(fileN);
   		
   		//csv file header
-  		fileWriter.append("category");
+  		/*fileWriter.append("category");
   		fileWriter.append(",");
   		fileWriter.append("size");
   		fileWriter.append(",");
@@ -54,7 +83,7 @@ public class Closet extends JFrame{
   		fileWriter.append("dates");
   		fileWriter.append(",");
   		fileWriter.append("filename");
-  		fileWriter.append("\n");
+  		fileWriter.append("\n");*/
   		
   		for (int i = 0; i<clothes.size(); i++){
   			fileWriter.append(Article.toString(clothes.get(i)));
@@ -73,6 +102,16 @@ public class Closet extends JFrame{
   		}
   	}
   }
+  
+  /*public ArrayList<String> stringToArrayList(){
+  	String str = this.substring(1, this.length()-1);
+  	String arr[] = str.split(",");
+  	ArrayList<String> res = new ArrayList<String>();
+  	for (int i = 0; i<arr.length; i++){
+  		res.set(i,arr[i]);
+  	}
+  	return res;
+  }*/
 }
   
   
