@@ -36,8 +36,13 @@ public class Closet extends JFrame{
   			String article[] = currentLine.split(",");
   			String category = article[0];
   			String size = article[1];
-  			String s1 = article[2];
-  			
+  			String occasion = article[2].substring(1,article[2].length()-1);
+  			String color = article[3].substring(1,article[3].length()-1);
+  			String brand = article[4];
+  			String material = article[5];
+  			String = article[6];
+  			String dates = article[7].substring(1,article[7].length()-1);
+  			String fileName = article[8];
   			
   			
   			System.out.println(currentLine);
