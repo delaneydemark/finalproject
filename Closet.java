@@ -33,8 +33,13 @@ public class Closet extends JFrame{
   		br = new BufferedReader(fr);
   		String currentLine;
   		while((currentLine = br.readLine()) != null){
-  			String article = currentLine.split(",");
-  			 
+  			String article[] = currentLine.split(",");
+  			String category = article[0];
+  			String size = article[1];
+  			String s1 = article[2];
+  			
+  			
+  			
   			System.out.println(currentLine);
   		}catch(IOException e){
   			e.printStackTrace();
@@ -43,7 +48,7 @@ public class Closet extends JFrame{
   }
   
   public void add(Article art){
-  	this.add(art);
+  	clothes.add(art);
   }
   
   public void writeToCSV(String fileN){
@@ -87,6 +92,16 @@ public class Closet extends JFrame{
   			System.out.println("Error in flushing/closing fileWriter");
   		}
   	}
+  }
+  
+  public ArrayList<String> stringToArrayList(){
+  	String str = this.substring(1, this.length()-1);
+  	String arr[] = str.split(",");
+  	ArrayList<String> res = new ArrayList<String>();
+  	for (int i = 0; i<arr.length; i++){
+  		res.set(i,arr[i]);
+  	}
+  	return res;
   }
 }
   
