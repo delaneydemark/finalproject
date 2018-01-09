@@ -126,7 +126,7 @@ public class ArticleEditScreen extends Closet implements ActionListener{
       art.setPrice(priceText.getText());
       art.setDates(dateText.getText());
       // write to file
-      writeToCSV("articles.csv",clothes);
+      writeToCSV("articles.csv");
       //swap screen
       ArticleDisplayScreen w = new ArticleDisplayScreen(art);
       w.setVisible(true);

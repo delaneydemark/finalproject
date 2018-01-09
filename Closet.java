@@ -60,6 +60,15 @@ public class Closet extends JFrame{
   	clothes.add(art);
   }
   
+  public void remove(Article art){
+  	clothes.remove(art);
+  }
+  
+  public void clear(){
+  	clothes.clear();
+  	writeToCSV("articles.csv");
+  }
+  
   public void writeToCSV(String fileN){
   	FileWriter fileWriter = null;
   	try{

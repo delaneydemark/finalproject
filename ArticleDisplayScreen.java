@@ -5,6 +5,7 @@ import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
 import java.util.List;
+import java.util.ArrayList;
 
 public class ArticleDisplayScreen extends Closet implements ActionListener{
     private Container screen;
@@ -44,7 +45,7 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
 	    ex.printStackTrace();
 	}
 	
-f	//set up data displayed
+	//set up data displayed
 	category = new JLabel("Category: "+ art.getCategory());
 	size = new JLabel("Size: "+ art.getSize());
 	occasion = new JLabel("Occasion: " + String.join(",",art.getOccasion()));
