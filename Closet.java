@@ -47,7 +47,6 @@ public class Closet extends JFrame{
   									price, dates, fileName);
   			add(art);
   			
-  			System.out.println(currentLine);
   		}
   	}catch(IOException e){
   			e.printStackTrace();
