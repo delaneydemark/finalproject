@@ -67,7 +67,7 @@ public class Closet extends JFrame{
   		fileWriter = new FileWriter(fileN);
   		
   		//csv file header
-  		fileWriter.append("category");
+  		/*fileWriter.append("category");
   		fileWriter.append(",");
   		fileWriter.append("size");
   		fileWriter.append(",");
@@ -84,7 +84,7 @@ public class Closet extends JFrame{
   		fileWriter.append("dates");
   		fileWriter.append(",");
   		fileWriter.append("filename");
-  		fileWriter.append("\n");
+  		fileWriter.append("\n");*/
   		
   		for (int i = 0; i<clothes.size(); i++){
   			fileWriter.append(Article.toString(clothes.get(i)));
