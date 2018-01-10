@@ -52,6 +52,7 @@ public class Closet extends JFrame{
   	}catch(IOException e){
   			e.printStackTrace();
   	}
+  	sort();
   	for(int i = 0; i<clothes.size(); i++){
   		System.out.println(Article.toString(clothes.get(i)));
   	}

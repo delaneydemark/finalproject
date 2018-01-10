@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class HomeScreen extends Closet implements ActionListener{
   private Container screen;
@@ -38,13 +40,13 @@ public class HomeScreen extends Closet implements ActionListener{
     //loop through lenght of closet and display photos
 
       //CREATE AN ARRAY LIST OF JLABELS. AND LOOP THROUGH JLABELS.
-      photo = new BufferedImage;
-      image = new JLabel;
+      photo = new BufferedImage();
+      image = new JLabel();
       ArrayList<JLabel> images = new ArrayList<JLabel>();
       for(int i = 0;i < clothes.len();i++){
 	  //print the photo of corresponding article
 	  Article art = clothes.get(i);
-	  JLabel  = new JLabel;
+	  JLabel  = new JLabel();
 	screen.add();
 	try{
 	    photo = ArticleAddScreen.editImage(120,120,ImageIO.read(new File(art.getFileName())));
@@ -53,6 +55,7 @@ public class HomeScreen extends Closet implements ActionListener{
 	}catch(Exception ex){
 	    ex.printStackTrace();
       }
+  	}
   }
 
 
