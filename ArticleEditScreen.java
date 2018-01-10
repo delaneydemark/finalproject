@@ -5,6 +5,7 @@ import java.io.*;
 import java.util.List;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
+import java.lang.String;
 
 public class ArticleEditScreen extends Closet implements ActionListener{
     private Container screen;

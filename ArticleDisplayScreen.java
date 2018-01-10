@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import javax.imageio.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.lang.String;
 
 public class ArticleDisplayScreen extends Closet implements ActionListener{
     private Container screen;

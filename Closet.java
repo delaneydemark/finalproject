@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.lang.String;
 
 public class Closet extends JFrame{
   public static void main(String[] args){
@@ -129,6 +130,34 @@ public class Closet extends JFrame{
   	}
   	return res;
   }*/
+  
+  public void sort(){
+  	ArrayList<Article> tops = new ArrayList<Article>();
+  	ArrayList<Article> bottoms = new ArrayList<Article>();
+  	ArrayList<Article> dresses = new ArrayList<Article>();
+  	ArrayList<Article> shoes = new ArrayList<Article>();
+  	ArrayList<Article> other = new ArrayList<Article>();
+  	for(int i = 0; i<clothes.size(); i++){
+  		Article art = clothes.get(i);
+  		String category = art.getCategory().toLowerCase();
+  		if (category.equals("shirt")){
+  			tops.add(art);
+  		}
+  		else if (category.equals("shorts") || category.equals("pants") 
+  				|| category.equals("skirt")){
+  			bottoms.add(art);
+  		}
+  		else if (category.equals("dress"){
+  			dresses.add(art);
+  		}
+  		else if (category.equals("shoes"){
+  			shoes.add(art);
+  		}
+  		else{
+  			other.add(art);
+  		}
+  	}
+  }
 }
   
   
