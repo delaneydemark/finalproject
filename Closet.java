@@ -132,14 +132,18 @@ public class Closet extends JFrame{
   }*/
   
   public void sort(){
+  	// separate arraylists for each category
   	ArrayList<Article> tops = new ArrayList<Article>();
   	ArrayList<Article> bottoms = new ArrayList<Article>();
   	ArrayList<Article> dresses = new ArrayList<Article>();
   	ArrayList<Article> shoes = new ArrayList<Article>();
   	ArrayList<Article> other = new ArrayList<Article>();
   	for(int i = 0; i<clothes.size(); i++){
+		//for each article in clothes
   		Article art = clothes.get(i);
+  		// makes category all lowercase to eliminate capitalization issues
   		String category = art.getCategory().toLowerCase();
+  		// adds the article to the appropriate arraylist
   		if (category.equals("shirt")){
   			tops.add(art);
   		}
@@ -147,18 +151,28 @@ public class Closet extends JFrame{
   				|| category.equals("skirt")){
   			bottoms.add(art);
   		}
-  		else if (category.equals("dress"){
+  		else if (category.equals("dress")){
   			dresses.add(art);
   		}
-  		else if (category.equals("shoes"){
+  		else if (category.equals("shoes")){
   			shoes.add(art);
   		}
   		else{
   			other.add(art);
   		}
   	}
+  	// clears clothes
+  	clothes.clear();
+  	// adds each of the arraylists to clothes in order
+  	clothes.addAll(tops);
+  	clothes.addAll(bottoms);
+  	clothes.addAll(dresses);
+  	clothes.addAll(shoes);
+  	clothes.addAll(other);
+  	// sorted
   }
 }
+
   
   
 
