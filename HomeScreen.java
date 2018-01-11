@@ -48,12 +48,12 @@ public class HomeScreen extends Closet implements ActionListener{
 	    //print the photo of corresponding article
 	    Article art = get(i);
 	    if(!current.equals(art.getCategory())){
-		int last = categories.size() - 1;
 		current = art.getCategory();
 		categories.add(new JLabel());
-		categories.get(last) = new JLabel(current);
-		screen.add(categories.get(last));
-	
+		int last = categories.size() - 1;
+		JLabel curren = categories.get(last);
+		curren = new JLabel(current);
+		screen.add(curren);
 	    }
 	    images[i] = new JLabel();
 	    screen.add(images[i]);
