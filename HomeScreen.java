@@ -8,6 +8,8 @@ import javax.imageio.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.ArrayList;
+import java.lang.String;
 
 public class HomeScreen extends Closet implements ActionListener{
     private Container screen;
