@@ -65,11 +65,69 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
 	screen.add(material);
 	screen.add(price);
 	screen.add(dates);
+
+	category.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent me){
+		    HomeScreen w = new HomeScreen(art.getCategory());
+		    w.setVisible(true);
+		    dispose();
+		}
+	    });
+        size.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent me){
+		    HomeScreen w = new HomeScreen(art.getSize());
+		    w.setVisible(true);
+		    dispose();
+		}
+	    });
+	occasion.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent me){
+		    HomeScreen w = new HomeScreen(art.getCategory());
+		    w.setVisible(true);
+		    dispose();
+		}
+	    });
+	color.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent me){
+		    HomeScreen w = new HomeScreen(art.getCategory());
+		    w.setVisible(true);
+		    dispose();
+		}
+	    });
+	brand.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent me){
+		    HomeScreen w = new HomeScreen(art.getBrand());
+		    w.setVisible(true);
+		    dispose();
+		}
+	    });
+        material.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent me){
+		    HomeScreen w = new HomeScreen(art.getMaterial());
+		    w.setVisible(true);
+		    dispose();
+		}
+	    });
+	price.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent me){
+		    HomeScreen w = new HomeScreen(art.getPrice());
+		    w.setVisible(true);
+		    dispose();
+		}
+	    });
+	dates.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent me){
+		    HomeScreen w = new HomeScreen(art.getCategory());
+		    w.setVisible(true);
+		    dispose();
+		}
+	    });
     }
 
     public void actionPerformed(ActionEvent e){
 	String s = e.getActionCommand();
 	//check if they clicked back...go to HomeScreen and close current window
+	
 	if(s.equals("Back")){
 	    HomeScreen w = new HomeScreen();
 	    w.setVisible(true);

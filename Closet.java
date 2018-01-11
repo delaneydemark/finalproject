@@ -53,6 +53,7 @@ public class Closet extends JFrame{
   			e.printStackTrace();
   	}
   	sort();
+	System.out.println("SORT");
   	for(int i = 0; i<clothes.size(); i++){
   		System.out.println(Article.toString(clothes.get(i)));
   	}
@@ -131,6 +132,7 @@ public class Closet extends JFrame{
   	}
   	return res;
   }*/
+
   
   public void sort(){
   	// separate arraylists for each category
@@ -139,6 +141,7 @@ public class Closet extends JFrame{
   	ArrayList<Article> dresses = new ArrayList<Article>();
   	ArrayList<Article> shoes = new ArrayList<Article>();
   	ArrayList<Article> other = new ArrayList<Article>();
+	ArrayList<Article> otherSorted = new ArrayList<Article>();
   	for(int i = 0; i<clothes.size(); i++){
 		//for each article in clothes
   		Article art = clothes.get(i);
@@ -162,6 +165,16 @@ public class Closet extends JFrame{
   			other.add(art);
   		}
   	}
+
+	//sorts other
+	for(int i = 0;i < other.size();i++){	    
+	    for(int j = 0;j < otherSorted.size();j++){
+		if(other.get(i).getCategory().compareTo(otherSorted.get(j).getCategory() == 0 || other.get(i).getCategory().compareTo(otherSorted.get(j).getCategory() == -1 || j == otherSorted.size() - 1){
+			    otherSorted.add(j, other.get(i));
+		    }
+	    }
+	}
+	
   	// clears clothes
   	clothes.clear();
   	// adds each of the arraylists to clothes in order

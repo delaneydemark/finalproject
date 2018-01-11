@@ -16,6 +16,7 @@ public class HomeScreen extends Closet implements ActionListener{
     private JButton suggestOutfits, add, filter;
 
     public HomeScreen(){
+	System.out.println("HOME");
 	//make generic window
 	this.setSize(600,400);
 	this.setLocation(100,100);
@@ -76,7 +77,10 @@ public class HomeScreen extends Closet implements ActionListener{
     }
 
     public HomeScreen(String filter){
-
+	System.out.println(filter);
+	HomeScreen w = new HomeScreen();
+	w.setVisible(true);
+	dispose();
     }
 
 
