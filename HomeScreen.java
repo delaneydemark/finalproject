@@ -14,6 +14,7 @@ import java.lang.String;
 public class HomeScreen extends Closet implements ActionListener{
     private Container screen;
     private JButton suggestOutfits, add, filterButton;
+    private JTextFielf filterBox;
 
     public HomeScreen(){
 	//make generic window
@@ -28,13 +29,16 @@ public class HomeScreen extends Closet implements ActionListener{
 	suggestOutfits = new JButton("Suggest Outfits");
 	add = new JButton("Add");
 	filterButton = new JButton("Filter");
+	filterBox = new JTextField(15);
 
 	suggestOutfits.addActionListener(this);
 	add.addActionListener(this);
 	filterButton.addActionListener(this);
+	filterBox.addActionListener(this);
 
 	screen.add(suggestOutfits);
 	screen.add(add);
+	screen.add(filterBox);
 	screen.add(filterButton);
 
 	//loop through length of closet and display photos
@@ -89,13 +93,16 @@ public class HomeScreen extends Closet implements ActionListener{
 		suggestOutfits = new JButton("Suggest Outfits");
 		add = new JButton("Add");
 		filterButton = new JButton("Filter");
+		filterBox = new JTextField(15);
 
 		suggestOutfits.addActionListener(this);
 		add.addActionListener(this);
 		filterButton.addActionListener(this);
+		filterBox.addActionListener(this);
 
 		screen.add(suggestOutfits);
 		screen.add(add);
+		screen.add(filterBox);
 		screen.add(filterButton);
 
 	//loop through length of closet and display photos
@@ -146,5 +153,9 @@ public class HomeScreen extends Closet implements ActionListener{
 	    this.dispose();
 	}
 	//check if they clicked filter...filter screen
+	if(s.equals("Filter")){
+		HomeScreen w = new HomeScreen(filterBox.getText());
+		w.setVisible(true);
+	}
     }
 }
