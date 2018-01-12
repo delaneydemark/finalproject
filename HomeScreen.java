@@ -14,7 +14,7 @@ import java.lang.String;
 public class HomeScreen extends Closet implements ActionListener{
     private Container screen;
     private JButton suggestOutfits, add, filterButton;
-    private JTextFielf filterBox;
+    private JTextField filterBox;
 
     public HomeScreen(){
 	//make generic window

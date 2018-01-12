@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Article{
+public class Article implements Comparable<Article>{
 
 
     private String category;
@@ -121,6 +121,10 @@ public class Article{
     	return art.getCategory() + "," + art.getSize() + "," + art.getOccasion() + "," + art.getColor() + 
     			"," + art.getBrand() + "," + art.getMaterial() + "," + art.getPrice() + "," + art.getDates() +
     			"," + art.getFileName();
+    }
+    
+    public int compareTo(Article other){
+    	return getCategory().compareTo(other.getCategory());
     }
     
 }

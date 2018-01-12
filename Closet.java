@@ -162,6 +162,7 @@ public class Closet extends JFrame{
   			other.add(art);
   		}
   	}
+  	other.sort(null);
   	// clears clothes
   	clothes.clear();
   	// adds each of the arraylists to clothes in order
