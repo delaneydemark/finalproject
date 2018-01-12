@@ -62,8 +62,14 @@ public class Closet extends JFrame{
   	clothes.add(art);
   }
   
-  public void remove(Article art){
-  	clothes.remove(art);
+  public boolean remove(Article art){
+  	for(int i = 0; i<len(); i++){
+  		if (get(i).getFileName().equals(art.getFileName())){
+  			clothes.remove(i);
+  			return true;
+  		}
+  	}
+  	return false;
   }
 
     public int len(){

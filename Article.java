@@ -67,7 +67,12 @@ public class Article implements Comparable<Article>{
      /* adding the occasion to the arraylist,
     not deleting and replacing with new*/
     public void setOccasion(String o){
-    	occasion.add(o);
+    	occasion.clear();
+    	String occ[]= o.split(",");
+		// adding each of the occasions to the arraylist 
+		for (int i = 0; i<occ.length; i++){
+			occasion.add(occ[i]);
+		}
     }
     
     public ArrayList<String> getColor(){
@@ -76,7 +81,12 @@ public class Article implements Comparable<Article>{
      /* adding the color to the arraylist,
     not deleting and replacing with new*/
     public void setColor(String c){
-    	color.add(c);
+    	color.clear();
+    	String col[] = c.split(",");
+		// adding each of the colors to the color arraylist
+		for (int i = 0; i<col.length; i++){
+			color.add(col[i]);
+		}
     }
     
     public String getBrand(){
@@ -107,7 +117,12 @@ public class Article implements Comparable<Article>{
      /* adding the date to the arraylist,
     not deleting and replacing with new*/
     public void setDates(String d){
-    	dates.add(d);
+    	dates.clear();
+    	String date[] = d.split(",");
+		// adding each of the dates to the dates arraylist
+		for (int i = 0; i<date.length; i++){
+			dates.add(date[i]);
+		}
     }
     
     public String getFileName(){
