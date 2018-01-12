@@ -24,6 +24,8 @@ public class Closet extends JFrame{
   
   
   public Closet(){
+
+    System.out.println("CLOSET");
   	clothes = new ArrayList<Article>();
   	//read in the CSV into clothes
   	BufferedReader br = null;
@@ -45,15 +47,15 @@ public class Closet extends JFrame{
   			String dates = article[7].substring(1,article[7].length()-1);
   			String fileName = article[8];
   			Article art = new Article(category, size, occasion, color, brand, material,
-  									price, dates, fileName);
+                                  price, dates, fileName);
   			add(art);
   			
   		}
   	}catch(IOException e){
-  			e.printStackTrace();
+      e.printStackTrace();
   	}
   	sort();
-	System.out.println("SORT");
+    System.out.println("SORT");
   	for(int i = 0; i<clothes.size(); i++){
   		System.out.println(Article.toString(clothes.get(i)));
   	}
@@ -67,13 +69,13 @@ public class Closet extends JFrame{
   	clothes.remove(art);
   }
 
-    public int len(){
-	return clothes.size();
-    }
+  public int len(){
+    return clothes.size();
+  }
 
-    public Article get(int n){
-	return clothes.get(n);
-    }
+  public Article get(int n){
+    return clothes.get(n);
+  }
   
   public void clear(){
   	clothes.clear();
@@ -87,23 +89,23 @@ public class Closet extends JFrame{
   		
   		//csv file header
   		/*fileWriter.append("category");
-  		fileWriter.append(",");
-  		fileWriter.append("size");
-  		fileWriter.append(",");
-  		fileWriter.append("occasion");
-  		fileWriter.append(",");
-  		fileWriter.append("color");
-  		fileWriter.append(",");
-  		fileWriter.append("brand");
-  		fileWriter.append(",");
-  		fileWriter.append("material");
-  		fileWriter.append(",");
-  		fileWriter.append("price");
-  		fileWriter.append(",");
-  		fileWriter.append("dates");
-  		fileWriter.append(",");
-  		fileWriter.append("filename");
-  		fileWriter.append("\n");*/
+        fileWriter.append(",");
+        fileWriter.append("size");
+        fileWriter.append(",");
+        fileWriter.append("occasion");
+        fileWriter.append(",");
+        fileWriter.append("color");
+        fileWriter.append(",");
+        fileWriter.append("brand");
+        fileWriter.append(",");
+        fileWriter.append("material");
+        fileWriter.append(",");
+        fileWriter.append("price");
+        fileWriter.append(",");
+        fileWriter.append("dates");
+        fileWriter.append(",");
+        fileWriter.append("filename");
+        fileWriter.append("\n");*/
   		
   		for (int i = 0; i<clothes.size(); i++){
   			fileWriter.append(Article.toString(clothes.get(i)));
@@ -123,15 +125,15 @@ public class Closet extends JFrame{
   	}
   }
   
-  /*public ArrayList<String> stringToArrayList(){
+  public ArrayList<String> stringToArrayList(){
   	String str = this.substring(1, this.length()-1);
   	String arr[] = str.split(",");
   	ArrayList<String> res = new ArrayList<String>();
   	for (int i = 0; i<arr.length; i++){
-  		res.set(i,arr[i]);
+    res.set(i,arr[i]);
   	}
   	return res;
-  }*/
+    }
 
   
   public void sort(){
@@ -141,9 +143,8 @@ public class Closet extends JFrame{
   	ArrayList<Article> dresses = new ArrayList<Article>();
   	ArrayList<Article> shoes = new ArrayList<Article>();
   	ArrayList<Article> other = new ArrayList<Article>();
-	ArrayList<Article> otherSorted = new ArrayList<Article>();
   	for(int i = 0; i<clothes.size(); i++){
-		//for each article in clothes
+      //for each article in clothes
   		Article art = clothes.get(i);
   		// makes category all lowercase to eliminate capitalization issues
   		String category = art.getCategory().toLowerCase();
@@ -152,7 +153,7 @@ public class Closet extends JFrame{
   			tops.add(art);
   		}
   		else if (category.equals("shorts") || category.equals("pants") 
-  				|| category.equals("skirt")){
+               || category.equals("skirt")){
   			bottoms.add(art);
   		}
   		else if (category.equals("dress")){
@@ -165,27 +166,18 @@ public class Closet extends JFrame{
   			other.add(art);
   		}
   	}
-
-	//sorts other
-	for(int i = 0;i < other.size();i++){	    
-	    for(int j = 0;j < otherSorted.size();j++){
-		if(other.get(i).getCategory().compareTo(otherSorted.get(j).getCategory() == 0 || other.get(i).getCategory().compareTo(otherSorted.get(j).getCategory() == -1 || j == otherSorted.size() - 1){
-			    otherSorted.add(j, other.get(i));
-		    }
-	    }
-	}
-	
-  	// clears clothes
-  	clothes.clear();
-  	// adds each of the arraylists to clothes in order
-  	clothes.addAll(tops);
-  	clothes.addAll(bottoms);
-  	clothes.addAll(dresses);
-  	clothes.addAll(shoes);
-  	clothes.addAll(other);
-  	// sorted
-  }
-}
+    other.sort(null);
+        // clears clothes
+        clothes.clear();
+        // adds each of the arraylists to clothes in order
+        clothes.addAll(tops);
+        clothes.addAll(bottoms);
+        clothes.addAll(dresses);
+        clothes.addAll(shoes);
+        clothes.addAll(other);
+        // sorted
+      }
+    }
 
   
   

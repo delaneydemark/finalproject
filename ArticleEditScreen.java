@@ -96,9 +96,9 @@ public class ArticleEditScreen extends Closet implements ActionListener{
 	dateText.setText(String.join(",",art.getDates()));
     }
 
-    public void actionPerformed(ActionEvent e){
-	String s = e.getActionCommand();
-	//check if they clicked back...go to HomeScreen and close current window
+  public void actionPerformed(ActionEvent e){
+    String s = e.getActionCommand();
+    //check if they clicked back...go to HomeScreen and close current window
     if(s.equals("Back")){
       HomeScreen w = new HomeScreen();
       w.setVisible(true);
@@ -106,20 +106,20 @@ public class ArticleEditScreen extends Closet implements ActionListener{
     }
     //checks if they pressed delete
     if(s.equals("Delete")){
-	//remove article from arraylist clothes
-	remove(art);
-	//writeToCSV
-	writeToCSV("articles.csv");
-	//go to homescreen
-	HomeScreen w = new HomeScreen();
-	w.setVisible(true);
-	this.dispose();
+      //remove article from arraylist clothes
+      remove(art);
+      //writeToCSV
+      writeToCSV("articles.csv");
+      //go to homescreen
+      HomeScreen w = new HomeScreen();
+      w.setVisible(true);
+      this.dispose();
     }
     //check if they clicked save...go to ArticleDisplayScreen close current window
     if(s.equals("Save")){
-	// edit article in arraylist
-	art.setCategory(categoryText.getText());
-	art.setSize(sizeText.getText());
+      // edit article in arraylist
+      art.setCategory(categoryText.getText());
+      art.setSize(sizeText.getText());
       art.setOccasion(occasionText.getText());
       art.setColor(colorText.getText());
       art.setBrand(brandText.getText());
