@@ -65,8 +65,14 @@ public class Closet extends JFrame{
   	clothes.add(art);
   }
   
-  public void remove(Article art){
-  	clothes.remove(art);
+  public boolean remove(Article art){
+  	for(int i = 0; i<len(); i++){
+  		if (get(i).getFileName().equals(art.getFileName())){
+  			clothes.remove(i);
+  			return true;
+  		}
+  	}
+  	return false;
   }
 
   public int len(){
@@ -166,19 +172,19 @@ public class Closet extends JFrame{
   			other.add(art);
   		}
   	}
-    other.sort(null);
-        // clears clothes
-        clothes.clear();
-        // adds each of the arraylists to clothes in order
-        clothes.addAll(tops);
-        clothes.addAll(bottoms);
-        clothes.addAll(dresses);
-        clothes.addAll(shoes);
-        clothes.addAll(other);
-        // sorted
-      }
-    }
 
+  	other.sort(null);
+  	// clears clothes
+  	clothes.clear();
+  	// adds each of the arraylists to clothes in order
+  	clothes.addAll(tops);
+  	clothes.addAll(bottoms);
+  	clothes.addAll(dresses);
+  	clothes.addAll(shoes);
+  	clothes.addAll(other);
+  	// sorted
+  }
+}
   
   
 

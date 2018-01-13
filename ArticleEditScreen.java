@@ -117,15 +117,19 @@ public class ArticleEditScreen extends Closet implements ActionListener{
     }
     //check if they clicked save...go to ArticleDisplayScreen close current window
     if(s.equals("Save")){
-      // edit article in arraylist
-      art.setCategory(categoryText.getText());
-      art.setSize(sizeText.getText());
+    //remove old article
+    System.out.println(remove(art));
+	// edit article in arraylist
+	art.setCategory(categoryText.getText());
+	art.setSize(sizeText.getText());
       art.setOccasion(occasionText.getText());
       art.setColor(colorText.getText());
       art.setBrand(brandText.getText());
       art.setMaterial(materialText.getText());
       art.setPrice(priceText.getText());
       art.setDates(dateText.getText());
+      art.setFileName(art.getFileName());
+      add(art);
       // write to file
       writeToCSV("articles.csv");
       //swap screen
