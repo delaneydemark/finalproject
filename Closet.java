@@ -56,8 +56,8 @@ public class Closet extends JFrame{
   			String brand = secondArr[0];
   			String material = secondArr[1];
   			String price = secondArr[2];
-  			String dates = article[7].substring(1,article[7].length()-1);
-  			String fileName = article[8];
+  			String dates = current.substring(indexOpen+1, indexClose);
+  			String fileName = current.substring(indexClose+2, currentLine.length());
   			Article art = new Article(category, size, occasion, color, brand, material,
                                   price, dates, fileName);
   			add(art);
