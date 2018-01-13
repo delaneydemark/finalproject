@@ -48,9 +48,14 @@ public class Closet extends JFrame{
 			indexOpen = current.indexOf("[");
 			indexClose = current.indexOf("]");
   			String color = current.substring(indexOpen+1, indexClose);
-  			String brand = article[4];
-  			String material = article[5];
-  			String price = article[6];
+  			current = current.substring(indexClose+2, currentLine.length());
+  			indexOpen = current.indexOf("[");
+  			indexClose = current.indexOf("]");
+  			String second = current.substring(0, indexOpen);
+  			String secondArr[] = second.split(",");
+  			String brand = secondArr[0];
+  			String material = secondArr[1];
+  			String price = secondArr[2];
   			String dates = article[7].substring(1,article[7].length()-1);
   			String fileName = article[8];
   			Article art = new Article(category, size, occasion, color, brand, material,
