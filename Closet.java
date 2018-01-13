@@ -130,7 +130,7 @@ public class Closet extends JFrame{
   		}
   	}
   }
-  
+  /*
   public ArrayList<String> stringToArrayList(){
   	String str = this.substring(1, this.length()-1);
   	String arr[] = str.split(",");
@@ -141,7 +141,7 @@ public class Closet extends JFrame{
   	return res;
     }
 
-  
+  */
   public void sort(){
   	// separate arraylists for each category
   	ArrayList<Article> tops = new ArrayList<Article>();

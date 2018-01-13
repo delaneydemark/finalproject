@@ -141,9 +141,5 @@ public class Article implements Comparable<Article>{
   public int compareTo(Article other){
     return getCategory().compareTo(other.getCategory());
   }
-    
-    public int compareTo(Article other){
-    	return getCategory().compareTo(other.getCategory());
-    }
-    
+
 }
