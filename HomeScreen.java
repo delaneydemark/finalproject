@@ -13,7 +13,7 @@ import java.lang.String;
 
 public class HomeScreen extends Closet implements ActionListener{
   private Container screen;
-  private JButton suggestOutfits, add, filterButton;
+  private JButton suggestOutfits, add, filterButton, clear;
   private JTextField filterBox;
 
   public HomeScreen(){
@@ -31,16 +31,19 @@ public class HomeScreen extends Closet implements ActionListener{
     add = new JButton("Add");
     filterButton = new JButton("Filter");
     filterBox = new JTextField(15);
+    clear = new JButton("Clear Closet");
 
     suggestOutfits.addActionListener(this);
     add.addActionListener(this);
     filterButton.addActionListener(this);
     filterBox.addActionListener(this);
+    clear.addActionListener(this);
 
     screen.add(suggestOutfits);
     screen.add(add);
     screen.add(filterBox);
     screen.add(filterButton);
+    screen.add(clear);
 
     //loop through length of closet and display photos
 
@@ -93,15 +96,18 @@ public class HomeScreen extends Closet implements ActionListener{
 		//create buttons
 		suggestOutfits = new JButton("Suggest Outfits");
 		add = new JButton("Add");
+    clear = new JButton("Clear Closet");
 		filterButton = new JButton("Filter");
 		filterBox = new JTextField(15);
 
 		suggestOutfits.addActionListener(this);
 		add.addActionListener(this);
+    clear.addActionListener(this);
 		filterButton.addActionListener(this);
 		filterBox.addActionListener(this);
 
 		screen.add(suggestOutfits);
+    screen.add(clear);
 		screen.add(add);
 		screen.add(filterBox);
 		screen.add(filterButton);
@@ -164,5 +170,12 @@ public class HomeScreen extends Closet implements ActionListener{
       w.setVisible(true);
       this.dispose();
     }
+    if(s.equals("Clear Closet")){
+      clear();
+      HomeScreen w = new HomeScreen();
+      w.setVisible(true);
+      this.dispose();
+    }
   }
+  
 }
