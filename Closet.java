@@ -36,14 +36,18 @@ public class Closet extends JFrame{
   		br = new BufferedReader(fr);
   		String currentLine;
   		while((currentLine = br.readLine()) != null){
-  			int indexOpen = currentLine.indexOf("[");
-  			int indexClose = currentLine.indexOf("]");
-  			String first = currentLine.substring(0,indexOpen);
+  			String current = currentLine;
+  			int indexOpen = current.indexOf("[");
+  			int indexClose = current.indexOf("]");
+  			String first = current.substring(0,indexOpen);
   			String firstArr[] = first.split(",");
   			String category = firstArr[0];
   			String size = firstArr[1];
-  			String occasion = article[2].substring(1,article[2].length()-1);
-  			String color = article[3].substring(1,article[3].length()-1);
+  			String occasion = current.substring(indexOpen+1, indexClose);
+  			current = currentLine.substring(indexClose+2, currentLine.length());
+			indexOpen = current.indexOf("[");
+			indexClose = current.indexOf("]");
+  			String color = current.substring(indexOpen+1, indexClose);
   			String brand = article[4];
   			String material = article[5];
   			String price = article[6];
