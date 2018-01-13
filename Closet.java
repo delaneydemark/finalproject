@@ -36,9 +36,12 @@ public class Closet extends JFrame{
   		br = new BufferedReader(fr);
   		String currentLine;
   		while((currentLine = br.readLine()) != null){
-  			String article[] = currentLine.split(",");
-  			String category = article[0];
-  			String size = article[1];
+  			int indexOpen = currentLine.indexOf("[");
+  			int indexClose = currentLine.indexOf("]");
+  			String first = currentLine.substring(0,indexOpen);
+  			String firstArr[] = first.split(",");
+  			String category = firstArr[0];
+  			String size = firstArr[1];
   			String occasion = article[2].substring(1,article[2].length()-1);
   			String color = article[3].substring(1,article[3].length()-1);
   			String brand = article[4];
@@ -92,26 +95,6 @@ public class Closet extends JFrame{
   	FileWriter fileWriter = null;
   	try{
   		fileWriter = new FileWriter(fileN);
-  		
-  		//csv file header
-  		/*fileWriter.append("category");
-        fileWriter.append(",");
-        fileWriter.append("size");
-        fileWriter.append(",");
-        fileWriter.append("occasion");
-        fileWriter.append(",");
-        fileWriter.append("color");
-        fileWriter.append(",");
-        fileWriter.append("brand");
-        fileWriter.append(",");
-        fileWriter.append("material");
-        fileWriter.append(",");
-        fileWriter.append("price");
-        fileWriter.append(",");
-        fileWriter.append("dates");
-        fileWriter.append(",");
-        fileWriter.append("filename");
-        fileWriter.append("\n");*/
   		
   		for (int i = 0; i<clothes.size(); i++){
   			fileWriter.append(Article.toString(clothes.get(i)));
@@ -184,6 +167,8 @@ public class Closet extends JFrame{
   	clothes.addAll(other);
   	// sorted
   }
+  
+  
 }
   
   
