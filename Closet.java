@@ -35,31 +35,56 @@ public class Closet extends JFrame{
   		fr = new FileReader("articles.csv");
   		br = new BufferedReader(fr);
   		String currentLine;
+  		// creates an article for each line in articles.csv
+  		// and adds it to the clothes arraylist
   		while((currentLine = br.readLine()) != null){
   			String current = currentLine;
+  			// finds the index where the arraylist starts
   			int indexOpen = current.indexOf("[");
+  			// finds the index where the arraylist closes
   			int indexClose = current.indexOf("]");
+  			/* string for everything before the first arraylist
+  			 so it can be split on commas*/
   			String first = current.substring(0,indexOpen);
   			String firstArr[] = first.split(",");
+  			// assigns category and size from the split array
   			String category = firstArr[0];
   			String size = firstArr[1];
+  			// occasion takes everything between the brackets
   			String occasion = current.substring(indexOpen+1, indexClose);
+  			/* current is redefined so it starts after the comma after the 
+  			 first arraylist */
   			current = currentLine.substring(indexClose+2, currentLine.length());
+  			// finds index where the next arraylist opens
 			indexOpen = current.indexOf("[");
+			// finds index where the next arraylist closes
 			indexClose = current.indexOf("]");
+			// color takes everything between the brackets
   			String color = current.substring(indexOpen+1, indexClose);
+  			/* current is redefined so it starts after the comma 
+  			 after the second arraylist*/
   			current = current.substring(indexClose+2, currentLine.length());
+  			// finds the index where the third arraylist opens
   			indexOpen = current.indexOf("[");
+  			// finds the index where the third arraylist closes
   			indexClose = current.indexOf("]");
+  			/* string for everything between the second arraylist and the 
+  			 third arraylist, which is split on commas*/
   			String second = current.substring(0, indexOpen);
   			String secondArr[] = second.split(",");
+  			// assigns brand, material, and price based on the split array
   			String brand = secondArr[0];
   			String material = secondArr[1];
   			String price = secondArr[2];
+  			// dates takes everything between the brackets
   			String dates = current.substring(indexOpen+1, indexClose);
+  			/* filenName starts after the comma after the third 
+  			array and goes to the end */
   			String fileName = current.substring(indexClose+2, currentLine.length());
+  			// new article constructed using all the determined fields
   			Article art = new Article(category, size, occasion, color, brand, material,
                                   price, dates, fileName);
+            // each article is added to clothes
   			add(art);
   			
   		}
