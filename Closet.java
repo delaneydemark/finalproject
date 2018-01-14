@@ -54,7 +54,7 @@ public class Closet extends JFrame{
   			String occasion = current.substring(indexOpen+1, indexClose);
   			/* current is redefined so it starts after the comma after the 
   			 first arraylist */
-  			current = currentLine.substring(indexClose+2, currentLine.length());
+  			current = currentLine.substring(indexClose+2);
   			// finds index where the next arraylist opens
 			indexOpen = current.indexOf("[");
 			// finds index where the next arraylist closes
@@ -63,7 +63,7 @@ public class Closet extends JFrame{
   			String color = current.substring(indexOpen+1, indexClose);
   			/* current is redefined so it starts after the comma 
   			 after the second arraylist*/
-  			current = current.substring(indexClose+2, currentLine.length());
+  			current = current.substring(indexClose+2);
   			// finds the index where the third arraylist opens
   			indexOpen = current.indexOf("[");
   			// finds the index where the third arraylist closes
@@ -80,7 +80,7 @@ public class Closet extends JFrame{
   			String dates = current.substring(indexOpen+1, indexClose);
   			/* filenName starts after the comma after the third 
   			array and goes to the end */
-  			String fileName = current.substring(indexClose+2, currentLine.length());
+  			String fileName = current.substring(indexClose+2);
   			// new article constructed using all the determined fields
   			Article art = new Article(category, size, occasion, color, brand, material,
                                   price, dates, fileName);

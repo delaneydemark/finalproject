@@ -127,12 +127,12 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
 	    });
   }
 
-  public static void labelMaker(ArrayList<String> arr){
+  /*public static void labelMaker(ArrayList<String> arr){
     JLabel labels = new JLabel[arr.size()];
     for(int i = 0;i < arr.size();i++){
       labels[i] = new JLabel(arr.get(i));
       screen.add(labels[i]);
-      labels[i].addMouseListener(new MouseAdaptor{
+      labels[i].addMouseListener(new MouseAdaptor(){
           public void mouseClicked(MouseEvent me){
             HomeScreen w = new HomeScreen(arr.get(i));
             w.setVisible(true);
@@ -140,7 +140,7 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
           }
         });
     }
-  }
+  }*/
 
   public void actionPerformed(ActionEvent e){
     String s = e.getActionCommand();
