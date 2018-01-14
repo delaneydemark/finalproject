@@ -84,6 +84,7 @@ public class HomeScreen extends Closet implements ActionListener{
   }
 
   public HomeScreen(String filter){
+    System.out.println(filter);
     filter = filter.toLowerCase();
 		//make generic window
 		this.setSize(600,400);

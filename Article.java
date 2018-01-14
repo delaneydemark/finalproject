@@ -19,13 +19,13 @@ public class Article implements Comparable<Article>{
 		size = s;
 		// for now, when the user puts in co,o,d they have to put a comma in between
 		// splitting the occasion string on commas which creates an array
-		String occ[]= o.split(",");
+		String occ[]= o.split(", ");
 		// adding each of the occasions to the arraylist 
 		for (int i = 0; i<occ.length; i++){
 			occasion.add(occ[i]);
 		}
 		// splitting the color string on commas which creates an array
-		String col[] = co.split(",");
+		String col[] = co.split(", ");
 		// adding each of the colors to the color arraylist
 		for (int i = 0; i<col.length; i++){
 			color.add(col[i]);
@@ -38,7 +38,7 @@ public class Article implements Comparable<Article>{
 		price = p;
 		}
 		// splitting the dates string on a comma which creates an array
-		String date[] = d.split(",");
+		String date[] = d.split(", ");
 		// adding each of the dates to the dates arraylist
 		for (int i = 0; i<date.length; i++){
 			dates.add(date[i]);

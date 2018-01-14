@@ -140,7 +140,7 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
           }
         });
     }
-  }*/
+    }*/
 
   public void actionPerformed(ActionEvent e){
     String s = e.getActionCommand();
