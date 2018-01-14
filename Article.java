@@ -32,11 +32,7 @@ public class Article implements Comparable<Article>{
 		}
 		brand = b;
 		material = m;
-		// if user doesn't put a price, nothing happens
-		if (!p.equals("")){
-		// price is entered by the user as a string, it's converted to an int
 		price = p;
-		}
 		// splitting the dates string on a comma which creates an array
 		String date[] = d.split(", ");
 		// adding each of the dates to the dates arraylist
