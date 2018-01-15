@@ -48,26 +48,76 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
 	
     //set up data displayed
     category = new JLabel("Category: "+ art.getCategory());
-    size = new JLabel("Size: "+ art.getSize());
-    occasion = new JLabel("Occasion: " + String.join(",",art.getOccasion()));
-    //ArticleDisplayScreen.labelMaker(art.getOccasion());
-    color = new JLabel("Color: " + String.join(",",art.getColor()));
-    //ArticleDisplayScreen.labelMaker(art.getColor());
-    brand = new JLabel("Brand: " + art.getBrand());
-    material = new JLabel("Material: " + art.getMaterial());
-    price = new JLabel("Price: " + art.getPrice());
-    dates = new JLabel("Date: " + String.join(",",art.getDates()));
-    //ArticleDisplayScreen.labelMaker(art.getDates());
-
-	
     screen.add(category);
+    size = new JLabel("Size: "+ art.getSize());
     screen.add(size);
-    screen.add(occasion);
+    occasion = new JLabel("Occasion: ");
+    //set up occasion
+    screen.add(occasion);    
+    JLabel[] oLabels = new JLabel[art.getOccasion().size()];
+    for(int i = 0;i < art.getOccasion().size();i++){
+      if(i < art.getOccasion().size() - 1){
+        oLabels[i] = new JLabel(art.getOccasion().get(i) + ",");
+      }
+      else{
+        oLabels[i] = new JLabel(art.getOccasion().get(i));
+      }
+      screen.add(oLabels[i]);
+      String current = art.getOccasion().get(i);
+      oLabels[i].addMouseListener(new MouseAdapter(){
+          public void mouseClicked(MouseEvent me){
+            HomeScreen w = new HomeScreen(current);
+            w.setVisible(true);
+            dispose();
+          }
+        });
+    }
+    color = new JLabel("Color: ");
     screen.add(color);
+    JLabel[] cLabels = new JLabel[art.getColor().size()];
+    for(int i = 0;i < art.getColor().size();i++){
+      if(i < art.getColor().size() - 1){
+        cLabels[i] = new JLabel(art.getColor().get(i) + ",");
+      }
+      else{
+        cLabels[i] = new JLabel(art.getColor().get(i));
+      }
+      screen.add(cLabels[i]);
+      String current = art.getColor().get(i);
+      cLabels[i].addMouseListener(new MouseAdapter(){
+          public void mouseClicked(MouseEvent me){
+            HomeScreen w = new HomeScreen(current);
+            w.setVisible(true);
+            dispose();
+          }
+        });
+    }
+    brand = new JLabel("Brand: " + art.getBrand());
     screen.add(brand);
+    material = new JLabel("Material: " + art.getMaterial());
     screen.add(material);
+    price = new JLabel("Price: " + art.getPrice());
     screen.add(price);
+    dates = new JLabel("Date: ");
     screen.add(dates);
+    JLabel[] dLabels = new JLabel[art.getDates().size()];
+    for(int i = 0;i < art.getDates().size();i++){
+      if(i < art.getDates().size() - 1){
+        dLabels[i] = new JLabel(art.getDates().get(i) + ",");
+      }
+      else{
+        dLabels[i] = new JLabel(art.getDates().get(i));
+      }
+      screen.add(dLabels[i]);
+      String current = art.getDates().get(i);
+      dLabels[i].addMouseListener(new MouseAdapter(){
+          public void mouseClicked(MouseEvent me){
+            HomeScreen w = new HomeScreen(current);
+            w.setVisible(true);
+            dispose();
+          }
+        });
+    }
 
     category.addMouseListener(new MouseAdapter(){
         public void mouseClicked(MouseEvent me){
@@ -83,20 +133,20 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
           dispose();
         }
 	    });
-    occasion.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent me){
-          HomeScreen w = new HomeScreen(art.getCategory());
-          w.setVisible(true);
-          dispose();
-        }
+    /*occasion.addMouseListener(new MouseAdapter(){
+      public void mouseClicked(MouseEvent me){
+      HomeScreen w = new HomeScreen(art.getCategory());
+      w.setVisible(true);
+      dispose();
+      }
 	    });
-    color.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent me){
-          HomeScreen w = new HomeScreen(art.getCategory());
-          w.setVisible(true);
-          dispose();
-        }
-	    });
+      color.addMouseListener(new MouseAdapter(){
+      public void mouseClicked(MouseEvent me){
+      HomeScreen w = new HomeScreen(art.getCategory());
+      w.setVisible(true);
+      dispose();
+      }
+      });*/
     brand.addMouseListener(new MouseAdapter(){
         public void mouseClicked(MouseEvent me){
           HomeScreen w = new HomeScreen(art.getBrand());
@@ -118,29 +168,16 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
           dispose();
         }
 	    });
-    dates.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent me){
-          HomeScreen w = new HomeScreen(art.getCategory());
-          w.setVisible(true);
-          dispose();
-        }
-	    });
+    /*dates.addMouseListener(new MouseAdapter(){
+      public void mouseClicked(MouseEvent me){
+      HomeScreen w = new HomeScreen(art.getCategory());
+      w.setVisible(true);
+      dispose();
+      }
+      });*/
   }
 
-  /*public static void labelMaker(ArrayList<String> arr){
-    JLabel labels = new JLabel[arr.size()];
-    for(int i = 0;i < arr.size();i++){
-      labels[i] = new JLabel(arr.get(i));
-      screen.add(labels[i]);
-      labels[i].addMouseListener(new MouseAdaptor(){
-          public void mouseClicked(MouseEvent me){
-            HomeScreen w = new HomeScreen(arr.get(i));
-            w.setVisible(true);
-            dispose();
-          }
-        });
-    }
-    }*/
+  
 
   public void actionPerformed(ActionEvent e){
     String s = e.getActionCommand();

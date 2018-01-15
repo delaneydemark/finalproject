@@ -108,11 +108,11 @@ public class HomeScreen extends Closet implements ActionListener{
 		filterBox.addActionListener(this);
 
 		screen.add(suggestOutfits);
-    screen.add(clear);
 		screen.add(add);
 		screen.add(filterBox);
 		screen.add(filterButton);
-
+    screen.add(clear);
+   
     //loop through length of closet and display photos
 
 		//CREATE AN ARRAY LIST OF JLABELS. AND LOOP THROUGH JLABELS.
