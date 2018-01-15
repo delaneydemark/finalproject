@@ -64,7 +64,7 @@ public class Article implements Comparable<Article>{
     not deleting and replacing with new*/
     public void setOccasion(String o){
     	occasion.clear();
-    	String occ[]= o.split(",");
+    	String occ[]= o.split(", ");
 		// adding each of the occasions to the arraylist 
 		for (int i = 0; i<occ.length; i++){
 			occasion.add(occ[i]);
@@ -78,7 +78,7 @@ public class Article implements Comparable<Article>{
     not deleting and replacing with new*/
     public void setColor(String c){
     	color.clear();
-    	String col[] = c.split(",");
+    	String col[] = c.split(", ");
 		// adding each of the colors to the color arraylist
 		for (int i = 0; i<col.length; i++){
 			color.add(col[i]);
@@ -114,7 +114,7 @@ public class Article implements Comparable<Article>{
     not deleting and replacing with new*/
     public void setDates(String d){
     	dates.clear();
-    	String date[] = d.split(",");
+    	String date[] = d.split(", ");
 		// adding each of the dates to the dates arraylist
 		for (int i = 0; i<date.length; i++){
 			dates.add(date[i]);
