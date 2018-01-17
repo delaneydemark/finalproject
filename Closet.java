@@ -213,6 +213,9 @@ public class Closet extends JFrame{
   	int lastIndex = 0;
   	boolean foundLast = false;
   	while(!foundFirst || !foundLast){
+  		if(index==clothes.size() && !foundFirst){
+  			return -1;
+  		}
   		Article current = clothes.get(index);
   		if(current.getCategory().equals(category) && !foundFirst){
   			firstIndex = index;
