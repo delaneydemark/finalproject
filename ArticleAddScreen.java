@@ -10,6 +10,7 @@ import java.util.List;
 
 public class ArticleAddScreen extends Closet implements ActionListener{
   private Container screen;
+  private JPanel labelPane, buttonsPane, textPane;
   private JButton back, save, uploadImage;
   private JTextField categoryText, sizeText, occasionText, colorText, brandText, materialText, priceText, dateText;
   private JLabel image, categoryLabel, sizeLabel, occasionLabel, colorLabel, brandLabel, materialLabel, priceLabel, dateLabel;
@@ -28,7 +29,12 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
 
     screen = this.getContentPane();
-    screen.setLayout(new FlowLayout());
+    labelPane = new JPanel();
+    buttonsPane = new JPanel(new FlowLayout());
+    labelPane.setLayout(new BoxLayout(labelPane,BoxLayout.PAGE_AXIS));
+    textPane= new JPanel();
+    textPane.setLayout(new BoxLayout(textPane,BoxLayout.PAGE_AXIS));
+    //screen.setLayout(new FlowLayout());
     //set up back and save buttons
     back = new JButton("Back");
     save = new JButton("Save");
@@ -36,14 +42,14 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     back.addActionListener(this);
     save.addActionListener(this);
 
-    screen.add(back);
-    screen.add(save);
+    buttonsPane.add(back, BorderLayout.PAGE_START);
+    buttonsPane.add(save, BorderLayout.PAGE_START);
 
 
     //set up upload button to retrieve files
     uploadImage = new JButton("Upload...");
     uploadImage.addActionListener(this);
-    screen.add(uploadImage);
+    screen.add(uploadImage, BorderLayout.LINE_START);
 
 
     //set up textfields for data
@@ -64,22 +70,26 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     dateLabel = new JLabel("Date: ");
     dateText = new JTextField(15);
 
-    screen.add(categoryLabel);
-    screen.add(categoryText);
-    screen.add(sizeLabel);
-    screen.add(sizeText);
-    screen.add(occasionLabel);
-    screen.add(occasionText);
-    screen.add(colorLabel);
-    screen.add(colorText);
-    screen.add(brandLabel);
-    screen.add(brandText);
-    screen.add(materialLabel);
-    screen.add(materialText);
-    screen.add(priceLabel);
-    screen.add(priceText);
-    screen.add(dateLabel);
-    screen.add(dateText);
+    labelPane.add(categoryLabel);
+    textPane.add(categoryText);
+    labelPane.add(sizeLabel);
+    textPane.add(sizeText);
+    labelPane.add(occasionLabel);
+    textPane.add(occasionText);
+    labelPane.add(colorLabel);
+    textPane.add(colorText);
+    labelPane.add(brandLabel);
+    textPane.add(brandText);
+    labelPane.add(materialLabel);
+    textPane.add(materialText);
+    labelPane.add(priceLabel);
+    textPane.add(priceText);
+    labelPane.add(dateLabel);
+    textPane.add(dateText);
+
+    screen.add(labelPane, BorderLayout.CENTER);
+    screen.add(buttonsPane, BorderLayout.PAGE_START);
+    screen.add(textPane, BorderLayout.LINE_END);
   }
 
 
@@ -118,7 +128,7 @@ public class ArticleAddScreen extends Closet implements ActionListener{
       File f = chooser.getSelectedFile();
       filename = f.getAbsolutePath();
       image = new JLabel();
-      screen.add(image);
+      screen.add(image, BorderLayout.LINE_START);
       uploaded = true;
       try{
         photo = editImage(120,120,ImageIO.read(new File(filename)));
