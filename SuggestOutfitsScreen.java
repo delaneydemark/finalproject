@@ -5,7 +5,9 @@ import java.io.*;
 
 public class SuggestOutfitsScreen extends Closet implements ActionListener{
   private Container screen;
-  private JButton back;
+  private JButton back, create;
+  private JLabel category;
+  private JTextField categories;
 
   public SuggestOutfitsScreen(){
     //make generic window
@@ -16,12 +18,19 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
     screen = this.getContentPane();
     screen.setLayout(new FlowLayout());
 
-    //create buttons
+    //create buttons and textfields
     back = new JButton("Back");
+    category = new JLabel("Categories: ");
+    categories = new JTextField(10);
+    create = new JButton("Create");
 
     back.addActionListener(this);
+    create.addActionListener(this);
 
     screen.add(back);
+    screen.add(category);
+    screen.add(categories);
+    screen.add(create);
   }
 
   public void actionPerformed(ActionEvent e){
