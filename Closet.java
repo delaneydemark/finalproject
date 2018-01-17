@@ -208,21 +208,16 @@ public class Closet extends JFrame{
   	int firstIndex = 0; 
   	int lastIndex = 0;
   	boolean foundLast = false;
-  	while(!foundFirst){
-  		Article art = clothes.get(index);
-  		if(art.getCategory().equals(category)){
+  	while(!foundFirst || !foundLast){
+  		Article current = clothes.get(index);
+  		if(current.getCategory().equals(category) && !foundFirst){
   			firstIndex = index;
   			foundFirst = true;
   		}
-  		index++;
-  	}
-  	index = 0;
-  	while(!foundLast){
   		if ((clothes.size()-1) == index){
   			lastIndex = index;
   			foundLast = true;
   		}else{
-  			Article current = clothes.get(index);
   			Article next = clothes.get(index+1);
   			if(current.getCategory().equals(category) &&
   				!next.getCategory().equals(category)){
@@ -232,6 +227,7 @@ public class Closet extends JFrame{
   		}
   		index++;
   	}
+  
   }
   
   
