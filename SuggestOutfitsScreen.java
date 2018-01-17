@@ -33,4 +33,6 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
       this.dispose();
     }
   }
+  
+  
 }
