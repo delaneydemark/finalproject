@@ -93,6 +93,10 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
         //print the photo of corresponding article
         // CALL DELANEYS FUNCTION
         int n = randArticle(cats[i]);
+        if(n==-1){
+        	JLabel broken = new JLabel(cats[i] + " is not a stored category");
+        	screen.add(broken);
+        }else{
           images[i] = new JLabel();
           screen.add(images[i]);
           try{
@@ -110,6 +114,7 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
               }
             });
         }
+    }
   }
   
   
