@@ -2,6 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import javax.imageio.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+import java.util.ArrayList;
+import java.lang.String;
 
 public class SuggestOutfitsScreen extends Closet implements ActionListener{
   private Container screen;
@@ -41,6 +49,35 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
       w.setVisible(true);
       this.dispose();
     }
+    if(s.equals("Create")){
+      String cats[] = categories.getText().split(", ");
+      BufferedImage[]  photos = new BufferedImage[cats.length];
+      JLabel[] images = new JLabel[cats.length];
+      for(int i = 0;i < cats.length;i++){
+        //print the photo of corresponding article
+        // CALL DELANEYS FUNCTION
+        int n = randArticle(cats[i]);
+          images[i] = new JLabel();
+          screen.add(images[i]);
+          try{
+            photos[i] = ArticleAddScreen.editImage(120,120,ImageIO.read(new File(get(n).getFileName())));
+            ImageIcon j = new ImageIcon(photos[i]);
+            images[i].setIcon(j);
+          }catch(Exception ex){
+            ex.printStackTrace();
+          }
+          images[i].addMouseListener(new MouseAdapter(){
+              public void mouseClicked(MouseEvent me){
+                ArticleDisplayScreen w = new ArticleDisplayScreen(get(n));
+                w.setVisible(true);
+                dispose();
+              }
+            });
+        } 
+
+      }
+         
+    
   }
   
   

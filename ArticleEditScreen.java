@@ -88,12 +88,12 @@ public class ArticleEditScreen extends Closet implements ActionListener{
 	//set textfields to include current data
   categoryText.setText(art.getCategory());
 	sizeText.setText(art.getSize());
-	occasionText.setText("" +art.getOccasion());
-	colorText.setText("" + art.getColor());
+	occasionText.setText(String.join(", ", art.getOccasion()));
+	colorText.setText(String.join(", ", art.getColor()));
 	brandText.setText(art.getBrand());
 	materialText.setText(art.getMaterial());
 	priceText.setText(art.getPrice());
-	dateText.setText("" +art.getDates());
+	dateText.setText(String.join(", ", art.getDates()));
     }
 
   public void actionPerformed(ActionEvent e){
