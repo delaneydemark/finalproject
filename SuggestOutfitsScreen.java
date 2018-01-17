@@ -16,13 +16,14 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
   private JButton back, create;
   private JLabel category;
   private JTextField categories;
+  private boolean created;
 
   public SuggestOutfitsScreen(){
     //make generic window
     this.setSize(600,400);
     this.setLocation(100,100);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
-
+    created = false;
     screen = this.getContentPane();
     screen.setLayout(new FlowLayout());
 
@@ -50,7 +51,14 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
       this.dispose();
     }
     if(s.equals("Create")){
-      String cats[] = categories.getText().split(", ");
+      uploadImages(categories.getText());
+      }
+         
+    
+  }
+
+  public void uploadImages(String categoriess){
+    String cats[] = categoriess.split(", ");
       BufferedImage[]  photos = new BufferedImage[cats.length];
       JLabel[] images = new JLabel[cats.length];
       for(int i = 0;i < cats.length;i++){
@@ -73,11 +81,7 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
                 dispose();
               }
             });
-        } 
-
-      }
-         
-    
+        }
   }
   
   

@@ -204,6 +204,7 @@ public class Closet extends JFrame{
   }
   
   public int randArticle(String category){
+    //SEND MESSAGE IF NO ARTICLE OF THAT TYPE, IGNORE DOUBLE CATEGORY ENTRIES.
   	Random rand = new Random();
 	int artIndex;
   	boolean foundFirst = false;
