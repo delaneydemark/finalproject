@@ -42,6 +42,32 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
     screen.add(create);
   }
 
+  public SuggestOutfitsScreen(String categoriess){
+    //make generic window
+    this.setSize(600,400);
+    this.setLocation(100,100);
+    this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
+    created = false;
+    screen = this.getContentPane();
+    screen.setLayout(new FlowLayout());
+
+    //create buttons and textfields
+    back = new JButton("Back");
+    category = new JLabel("Categories: ");
+    categories = new JTextField(10);
+    create = new JButton("Create");
+
+    back.addActionListener(this);
+    create.addActionListener(this);
+
+    screen.add(back);
+    screen.add(category);
+    screen.add(categories);
+    screen.add(create);
+    categories.setText(categoriess);
+    uploadImages(categoriess);
+  }
+
   public void actionPerformed(ActionEvent e){
     String s = e.getActionCommand();
     //check if they clicked back...go to HomeScreen and close current window
@@ -51,7 +77,9 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
       this.dispose();
     }
     if(s.equals("Create")){
-      uploadImages(categories.getText());
+      SuggestOutfitsScreen w = new SuggestOutfitsScreen(categories.getText());
+      w.setVisible(true);
+      dispose();
       }
          
     
