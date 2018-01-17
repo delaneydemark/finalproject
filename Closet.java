@@ -11,6 +11,7 @@ import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.lang.String;
+import java.util.Random;
 
 public class Closet extends JFrame{
   public static void main(String[] args){
@@ -203,6 +204,8 @@ public class Closet extends JFrame{
   }
   
   public int randArticle(String category){
+  	Random rand = new Random();
+	int artIndex;
   	boolean foundFirst = false;
   	int index = 0; 
   	int firstIndex = 0; 
@@ -227,7 +230,8 @@ public class Closet extends JFrame{
   		}
   		index++;
   	}
-  
+	artIndex = rand.nextInt(lastIndex - firstIndex + 1) + firstIndex;
+  	return artIndex;
   }
   
   
