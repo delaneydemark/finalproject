@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ArticleAddScreen extends Closet implements ActionListener{
   private Container screen;
-  private JPanel labelPane, buttonsPane, textPane;
+  private JPanel labelPane, buttonsPane, textPane, containsText;
   private JButton back, save, uploadImage;
   private JTextField categoryText, sizeText, occasionText, colorText, brandText, materialText, priceText, dateText;
   private JLabel image, categoryLabel, sizeLabel, occasionLabel, colorLabel, brandLabel, materialLabel, priceLabel, dateLabel;
@@ -29,6 +29,7 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
 
     screen = this.getContentPane();
+    containsText = new JPanel(new FlowLayout());
     labelPane = new JPanel();
     buttonsPane = new JPanel(new FlowLayout());
     labelPane.setLayout(new BoxLayout(labelPane,BoxLayout.PAGE_AXIS));
@@ -49,7 +50,6 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     //set up upload button to retrieve files
     uploadImage = new JButton("Upload...");
     uploadImage.addActionListener(this);
-    screen.add(uploadImage, BorderLayout.LINE_START);
 
 
     //set up textfields for data
@@ -87,9 +87,11 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     labelPane.add(dateLabel);
     textPane.add(dateText);
 
-    screen.add(labelPane, BorderLayout.CENTER);
+    containsText.add(uploadImage);
+    containsText.add(labelPane);
+    containsText.add(textPane);
     screen.add(buttonsPane, BorderLayout.PAGE_START);
-    screen.add(textPane, BorderLayout.LINE_END);
+    screen.add(containsText, BorderLayout.CENTER);
   }
 
 
@@ -128,7 +130,7 @@ public class ArticleAddScreen extends Closet implements ActionListener{
       File f = chooser.getSelectedFile();
       filename = f.getAbsolutePath();
       image = new JLabel();
-      screen.add(image, BorderLayout.LINE_START);
+      containsText.add(image);
       uploaded = true;
       try{
         photo = editImage(120,120,ImageIO.read(new File(filename)));
