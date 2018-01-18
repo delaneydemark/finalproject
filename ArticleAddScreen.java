@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ArticleAddScreen extends Closet implements ActionListener{
   private Container screen;
-  private JPanel labelPane, buttonsPane, textPane, containsText;
+    private JPanel labelPane, buttonsPane, textPane, containsText, categoryPane, sizePane, occasionPane, colorPane, brandPane, materialPane, pricePane, datePane;
   private JButton back, save, uploadImage;
   private JTextField categoryText, sizeText, occasionText, colorText, brandText, materialText, priceText, dateText;
   private JLabel image, categoryLabel, sizeLabel, occasionLabel, colorLabel, brandLabel, materialLabel, priceLabel, dateLabel;
@@ -29,6 +29,14 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
 
     screen = this.getContentPane();
+    categoryPane = new JPanel(new FlowLayout());
+    sizePane = new JPanel(new FlowLayout());
+    occasionPane = new JPanel(new FlowLayout());
+    colorPane = new JPanel(new FlowLayout());
+    brandPane = new JPanel(new FlowLayout());
+    materialPane = new JPanel(new FlowLayout());
+    pricePane = new JPanel(new FlowLayout());
+    datePane = new JPanel(new FlowLayout());
     containsText = new JPanel(new FlowLayout());
     labelPane = new JPanel();
     buttonsPane = new JPanel(new FlowLayout());
@@ -70,26 +78,34 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     dateLabel = new JLabel("Date: ");
     dateText = new JTextField(15);
 
-    labelPane.add(categoryLabel);
-    textPane.add(categoryText);
-    labelPane.add(sizeLabel);
-    textPane.add(sizeText);
-    labelPane.add(occasionLabel);
-    textPane.add(occasionText);
-    labelPane.add(colorLabel);
-    textPane.add(colorText);
-    labelPane.add(brandLabel);
-    textPane.add(brandText);
-    labelPane.add(materialLabel);
-    textPane.add(materialText);
-    labelPane.add(priceLabel);
-    textPane.add(priceText);
-    labelPane.add(dateLabel);
-    textPane.add(dateText);
+    categoryPane.add(categoryLabel);
+    categoryPane.add(categoryText);
+    sizePane.add(sizeLabel);
+    sizePane.add(sizeText);
+    occasionPane.add(occasionLabel);
+    occasionPane.add(occasionText);
+    colorPane.add(colorLabel);
+    colorPane.add(colorText);
+    brandPane.add(brandLabel);
+    brandPane.add(brandText);
+    materialPane.add(materialLabel);
+    materialPane.add(materialText);
+    pricePane.add(priceLabel);
+    pricePane.add(priceText);
+    datePane.add(dateLabel);
+    datePane.add(dateText);
 
+    labelPane.add(categoryPane);  
+    labelPane.add(sizePane);
+    labelPane.add(occasionPane);
+    labelPane.add(colorPane);
+    labelPane.add(brandPane);
+    labelPane.add(materialPane);
+    labelPane.add(pricePane);
+    labelPane.add(datePane);
+    
     containsText.add(uploadImage);
     containsText.add(labelPane);
-    containsText.add(textPane);
     screen.add(buttonsPane, BorderLayout.PAGE_START);
     screen.add(containsText, BorderLayout.CENTER);
   }
