@@ -45,7 +45,9 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
     edit.addActionListener(this);
 
     buttonsPane.add(back);
-    buttonsPane.add(edit);
+    buttonsPane.add(edit);    
+    back.setBackground(Color.WHITE);
+    edit.setBackground(Color.WHITE);
     buttonsPane.setBackground(Color.BLACK);
     screen.add(buttonsPane, BorderLayout.PAGE_START);
 

@@ -45,6 +45,9 @@ public class ArticleEditScreen extends Closet implements ActionListener{
     buttonsPane.add(back);
     buttonsPane.add(delete);
     buttonsPane.add(save);
+    back.setBackground(Color.WHITE);
+    save.setBackground(Color.WHITE);
+    delete.setBackground(Color.WHITE);
     buttonsPane.setBackground(Color.BLACK);
 
     back.addActionListener(this);

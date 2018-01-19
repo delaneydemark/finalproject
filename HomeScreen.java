@@ -35,6 +35,11 @@ public class HomeScreen extends Closet implements ActionListener{
     filterButton = new JButton("Filter");
     filterBox = new JTextField(15);
     clear = new JButton("Clear Closet");
+    suggestOutfits.setBackground(Color.WHITE);
+    add.setBackground(Color.WHITE);
+    filterButton.setBackground(Color.WHITE);
+    clear.setBackground(Color.WHITE);
+	
 
     suggestOutfits.addActionListener(this);
     add.addActionListener(this);
@@ -130,6 +135,10 @@ public class HomeScreen extends Closet implements ActionListener{
     filterButton = new JButton("Filter");
     filterBox = new JTextField(15);
     clear = new JButton("Clear Closet");
+    suggestOutfits.setBackground(Color.WHITE);
+    add.setBackground(Color.WHITE);
+    filterButton.setBackground(Color.WHITE);
+    clear.setBackground(Color.WHITE);
 
     suggestOutfits.addActionListener(this);
     add.addActionListener(this);
