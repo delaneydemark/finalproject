@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ArticleAddScreen extends Closet implements ActionListener{
   private Container screen;
-    private JPanel labelPane, buttonsPane, textPane, containsText, categoryPane, sizePane, occasionPane, colorPane, brandPane, materialPane, pricePane, datePane;
+    private JPanel labelPane, buttonsPane, containsText, categoryPane, sizePane, occasionPane, colorPane, brandPane, materialPane, pricePane, datePane;
   private JButton back, save, uploadImage;
   private JTextField categoryText, sizeText, occasionText, colorText, brandText, materialText, priceText, dateText;
   private JLabel image, categoryLabel, sizeLabel, occasionLabel, colorLabel, brandLabel, materialLabel, priceLabel, dateLabel;
@@ -41,8 +41,6 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     labelPane = new JPanel();
     buttonsPane = new JPanel(new FlowLayout());
     labelPane.setLayout(new BoxLayout(labelPane,BoxLayout.PAGE_AXIS));
-    textPane= new JPanel();
-    textPane.setLayout(new BoxLayout(textPane,BoxLayout.PAGE_AXIS));
     //screen.setLayout(new FlowLayout());
     //set up back and save buttons
     back = new JButton("Back");
@@ -51,8 +49,8 @@ public class ArticleAddScreen extends Closet implements ActionListener{
     back.addActionListener(this);
     save.addActionListener(this);
 
-    buttonsPane.add(back, BorderLayout.PAGE_START);
-    buttonsPane.add(save, BorderLayout.PAGE_START);
+    buttonsPane.add(back);
+    buttonsPane.add(save);
 
 
     //set up upload button to retrieve files
