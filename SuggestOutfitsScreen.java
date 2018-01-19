@@ -13,6 +13,7 @@ import java.lang.String;
 
 public class SuggestOutfitsScreen extends Closet implements ActionListener{
   private Container screen;
+  private JPanel buttonsPane, main, textPane, photoPane;
   private JButton back, create;
   private JLabel category;
   private JTextField categories;
@@ -25,8 +26,11 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
     this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
     created = false;
     screen = this.getContentPane();
-    screen.setLayout(new FlowLayout());
-
+    buttonsPane = new JPanel(new FlowLayout());
+    textPane = new JPanel(new FlowLayout());
+    main = new JPanel();
+    main.setLayout(new BoxLayout(main, BoxLayout.PAGE_AXIS));
+    
     //create buttons and textfields
     back = new JButton("Back");
     category = new JLabel("Categories: ");
@@ -36,10 +40,13 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
     back.addActionListener(this);
     create.addActionListener(this);
 
-    screen.add(back);
-    screen.add(category);
-    screen.add(categories);
-    screen.add(create);
+    buttonsPane.add(back);
+    screen.add(buttonsPane, BorderLayout.PAGE_START);
+    textPane.add(category);
+    textPane.add(categories);
+    textPane.add(create);
+    main.add(textPane);
+    screen.add(main, BorderLayout.CENTER);
   }
 
   public SuggestOutfitsScreen(String categoriess){
@@ -49,7 +56,11 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
     this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
     created = false;
     screen = this.getContentPane();
-    screen.setLayout(new FlowLayout());
+    buttonsPane = new JPanel(new FlowLayout());
+    textPane = new JPanel(new FlowLayout());
+    photoPane = new JPanel(new FlowLayout());
+    main = new JPanel();
+    main.setLayout(new BoxLayout(main, BoxLayout.PAGE_AXIS));
 
     //create buttons and textfields
     back = new JButton("Back");
@@ -60,10 +71,14 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
     back.addActionListener(this);
     create.addActionListener(this);
 
-    screen.add(back);
-    screen.add(category);
-    screen.add(categories);
-    screen.add(create);
+    buttonsPane.add(back);
+    screen.add(buttonsPane, BorderLayout.PAGE_START);
+    textPane.add(category);
+    textPane.add(categories);
+    textPane.add(create);
+    main.add(textPane);
+    main.add(photoPane);
+    screen.add(main, BorderLayout.CENTER);
     categories.setText(categoriess);
     uploadImages(categoriess);
   }
@@ -98,7 +113,7 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
         	screen.add(broken);
         }else{
           images[i] = new JLabel();
-          screen.add(images[i]);
+          photoPane.add(images[i]);
           try{
             photos[i] = ArticleAddScreen.editImage(120,120,ImageIO.read(new File(get(n).getFileName())));
             ImageIcon j = new ImageIcon(photos[i]);
