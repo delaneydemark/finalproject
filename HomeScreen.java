@@ -67,6 +67,9 @@ public class HomeScreen extends Closet implements ActionListener{
 	    //print the photo of corresponding article
 	    Article art = get(i);
 	    if(!current.equals(art.getCategory())){
+        if(categories.size() != 0){
+          mainPane.add(subPanes.get(categories.size() - 1));
+        }
         current = art.getCategory();
         mainPanes.add(new JPanel());
         subPanes.add(new JPanel());
@@ -78,13 +81,12 @@ public class HomeScreen extends Closet implements ActionListener{
         now = new JPanel();
         now.setLayout(new BoxLayout(now, BoxLayout.PAGE_AXIS));
         now.add(curren);
+        JPanel noww = subPanes.get(last);
+        noww = new JPanel(new FlowLayout());
         mainPane.add(now);
 	    }
-      JPanel noww = subPanes.get(categories.size() - 1);
-      noww = new JPanel(new FlowLayout());
 	    images[i] = new JLabel();
-	    noww.add(images[i]);
-      mainPane.add(noww);
+      subPanes.get(categories.size() - 1).add(images[i]);
 	    try{
         photos[i] = ArticleAddScreen.editImage(120,120,ImageIO.read(new File(art.getFileName())));
         ImageIcon j = new ImageIcon(photos[i]);
@@ -99,6 +101,9 @@ public class HomeScreen extends Closet implements ActionListener{
             dispose();
           }
         });
+      if(i == len() - 1){
+        mainPane.add(subPanes.get(categories.size() - 1));
+      }
     }
 
   }
@@ -115,7 +120,7 @@ public class HomeScreen extends Closet implements ActionListener{
     mainPane = new JPanel();
     mainPane.setLayout(new BoxLayout(mainPane,BoxLayout.PAGE_AXIS));
     JPanel photoss = new JPanel(new FlowLayout());
-    mainPane.add(photoss);
+
 
     //create buttons
     suggestOutfits = new JButton("Suggest Outfits");
@@ -135,6 +140,11 @@ public class HomeScreen extends Closet implements ActionListener{
     buttonsPane.add(filterBox);
     buttonsPane.add(filterButton);
     buttonsPane.add(clear);
+    JLabel filterr = new JLabel("Filtering for: "+ filter);
+    JPanel filterrr = new JPanel();
+    filterrr.add(filterr);
+    mainPane.add(filterrr);
+    mainPane.add(photoss);
     screen.add(buttonsPane, BorderLayout.PAGE_START);
     screen.add(mainPane, BorderLayout.CENTER);
    
