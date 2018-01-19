@@ -13,6 +13,7 @@ import java.lang.String;
 
 public class HomeScreen extends Closet implements ActionListener{
   private Container screen;
+  private JPanel buttonsPane, mainPane;
   private JButton suggestOutfits, add, filterButton, clear;
   private JTextField filterBox;
 
@@ -24,7 +25,9 @@ public class HomeScreen extends Closet implements ActionListener{
     this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
 
     screen = this.getContentPane();
-    screen.setLayout(new BoxLayout(screen,BoxLayout.PAGE_AXIS));
+    buttonsPane = new JPanel(new FlowLayout());
+    mainPane = new JPanel();
+    mainPane.setLayout(new BoxLayout(mainPane,BoxLayout.PAGE_AXIS));
 
     //create buttons
     suggestOutfits = new JButton("Suggest Outfits");
@@ -39,11 +42,17 @@ public class HomeScreen extends Closet implements ActionListener{
     filterBox.addActionListener(this);
     clear.addActionListener(this);
 
-    screen.add(suggestOutfits);
-    screen.add(add);
-    screen.add(filterBox);
-    screen.add(filterButton);
-    screen.add(clear);
+    buttonsPane.add(suggestOutfits);
+    buttonsPane.add(add);
+    buttonsPane.add(filterBox);
+    buttonsPane.add(filterButton);
+    buttonsPane.add(clear);
+
+    screen.add(mainPane,BorderLayout.CENTER);
+    screen.add(buttonsPane, BorderLayout.PAGE_START);
+
+    JScrollPane scroll = new JScrollPane(mainPane);
+    add(scroll);
 
     //loop through length of closet and display photos
 
@@ -51,20 +60,31 @@ public class HomeScreen extends Closet implements ActionListener{
     BufferedImage[]  photos = new BufferedImage[len()];
     JLabel[] images = new JLabel[len()];
     ArrayList<JLabel> categories = new ArrayList<JLabel>();
+    ArrayList<JPanel> mainPanes = new ArrayList<JPanel>();
+    ArrayList<JPanel> subPanes = new ArrayList<JPanel>();
     String current = "";
     for(int i = 0;i < len();i++){
 	    //print the photo of corresponding article
 	    Article art = get(i);
 	    if(!current.equals(art.getCategory())){
         current = art.getCategory();
+        mainPanes.add(new JPanel());
+        subPanes.add(new JPanel());
         categories.add(new JLabel());
         int last = categories.size() - 1;
         JLabel curren = categories.get(last);
+        JPanel now = mainPanes.get(last);
         curren = new JLabel(current);
-        screen.add(curren);
+        now = new JPanel();
+        now.setLayout(new BoxLayout(now, BoxLayout.PAGE_AXIS));
+        now.add(curren);
+        mainPane.add(now);
 	    }
+      JPanel noww = subPanes.get(categories.size() - 1);
+      noww = new JPanel(new FlowLayout());
 	    images[i] = new JLabel();
-	    screen.add(images[i]);
+	    noww.add(images[i]);
+      mainPane.add(noww);
 	    try{
         photos[i] = ArticleAddScreen.editImage(120,120,ImageIO.read(new File(art.getFileName())));
         ImageIcon j = new ImageIcon(photos[i]);
@@ -90,27 +110,33 @@ public class HomeScreen extends Closet implements ActionListener{
 		this.setLocation(100,100);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
 
-		screen = this.getContentPane();
-		screen.setLayout(new BoxLayout(screen,BoxLayout.PAGE_AXIS));
+    screen = this.getContentPane();
+    buttonsPane = new JPanel(new FlowLayout());
+    mainPane = new JPanel();
+    mainPane.setLayout(new BoxLayout(mainPane,BoxLayout.PAGE_AXIS));
+    JPanel photoss = new JPanel(new FlowLayout());
+    mainPane.add(photoss);
 
-		//create buttons
-		suggestOutfits = new JButton("Suggest Outfits");
-		add = new JButton("Add");
+    //create buttons
+    suggestOutfits = new JButton("Suggest Outfits");
+    add = new JButton("Add");
+    filterButton = new JButton("Filter");
+    filterBox = new JTextField(15);
     clear = new JButton("Clear Closet");
-		filterButton = new JButton("Filter");
-		filterBox = new JTextField(15);
 
-		suggestOutfits.addActionListener(this);
-		add.addActionListener(this);
+    suggestOutfits.addActionListener(this);
+    add.addActionListener(this);
+    filterButton.addActionListener(this);
+    filterBox.addActionListener(this);
     clear.addActionListener(this);
-		filterButton.addActionListener(this);
-		filterBox.addActionListener(this);
 
-		screen.add(suggestOutfits);
-		screen.add(add);
-		screen.add(filterBox);
-		screen.add(filterButton);
-    screen.add(clear);
+    buttonsPane.add(suggestOutfits);
+    buttonsPane.add(add);
+    buttonsPane.add(filterBox);
+    buttonsPane.add(filterButton);
+    buttonsPane.add(clear);
+    screen.add(buttonsPane, BorderLayout.PAGE_START);
+    screen.add(mainPane, BorderLayout.CENTER);
    
     //loop through length of closet and display photos
 
@@ -124,7 +150,7 @@ public class HomeScreen extends Closet implements ActionListener{
 	    		|| art.getColor().contains(filter) || art.getBrand().equals(filter) || art.getMaterial().equals(filter)
 	    		|| art.getPrice().equals(filter) || art.getDates().contains(filter)){
         images[i] = new JLabel();
-        screen.add(images[i]);
+        photoss.add(images[i]);
         try{
 					photos[i] = ArticleAddScreen.editImage(120,120,ImageIO.read(new File(art.getFileName())));
 					ImageIcon j = new ImageIcon(photos[i]);

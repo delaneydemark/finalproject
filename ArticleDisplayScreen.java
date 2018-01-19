@@ -10,6 +10,7 @@ import java.lang.String;
 
 public class ArticleDisplayScreen extends Closet implements ActionListener{
   private Container screen;
+  private JPanel labelPane, buttonsPane, containsText, categoryPane, sizePane, occasionPane, colorPane, brandPane, materialPane, pricePane, datePane;
   private JButton back, edit;
   private BufferedImage photo;
   private JLabel image, category,size,occasion,color,brand,material,price,dates;
@@ -23,7 +24,18 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
     this.setDefaultCloseOperation(EXIT_ON_CLOSE); // look into this for how to write to file
 
     screen = this.getContentPane();
-    screen.setLayout(new FlowLayout());
+    categoryPane = new JPanel(new FlowLayout());
+    sizePane = new JPanel(new FlowLayout());
+    occasionPane = new JPanel(new FlowLayout());
+    colorPane = new JPanel(new FlowLayout());
+    brandPane = new JPanel(new FlowLayout());
+    materialPane = new JPanel(new FlowLayout());
+    pricePane = new JPanel(new FlowLayout());
+    datePane = new JPanel(new FlowLayout());
+    containsText = new JPanel(new FlowLayout());
+    labelPane = new JPanel();
+    buttonsPane = new JPanel(new FlowLayout());
+    labelPane.setLayout(new BoxLayout(labelPane,BoxLayout.PAGE_AXIS));
 
     //create buttons
     back = new JButton("Back");
@@ -32,12 +44,13 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
     back.addActionListener(this);
     edit.addActionListener(this);
 
-    screen.add(back);
-    screen.add(edit);
+    buttonsPane.add(back);
+    buttonsPane.add(edit);
+    screen.add(buttonsPane, BorderLayout.PAGE_START);
 
     //upload image
     image = new JLabel();
-    screen.add(image);
+    containsText.add(image);
     try{
 	    photo = ArticleAddScreen.editImage(120,120,ImageIO.read(new File(art.getFileName())));
 	    ImageIcon i = new ImageIcon(photo);
@@ -48,12 +61,14 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
 	
     //set up data displayed
     category = new JLabel("Category: "+ art.getCategory());
-    screen.add(category);
+    categoryPane.add(category);
+    labelPane.add(categoryPane);
     size = new JLabel("Size: "+ art.getSize());
-    screen.add(size);
+    sizePane.add(size);
+    labelPane.add(sizePane);
     occasion = new JLabel("Occasion: ");
     //set up occasion
-    screen.add(occasion);    
+    occasionPane.add(occasion);    
     JLabel[] oLabels = new JLabel[art.getOccasion().size()];
     for(int i = 0;i < art.getOccasion().size();i++){
       if(i < art.getOccasion().size() - 1){
@@ -62,7 +77,7 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
       else{
         oLabels[i] = new JLabel(art.getOccasion().get(i));
       }
-      screen.add(oLabels[i]);
+      occasionPane.add(oLabels[i]);
       String current = art.getOccasion().get(i);
       oLabels[i].addMouseListener(new MouseAdapter(){
           public void mouseClicked(MouseEvent me){
@@ -72,8 +87,9 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
           }
         });
     }
+    labelPane.add(occasionPane);
     color = new JLabel("Color: ");
-    screen.add(color);
+    colorPane.add(color);
     JLabel[] cLabels = new JLabel[art.getColor().size()];
     for(int i = 0;i < art.getColor().size();i++){
       if(i < art.getColor().size() - 1){
@@ -82,7 +98,7 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
       else{
         cLabels[i] = new JLabel(art.getColor().get(i));
       }
-      screen.add(cLabels[i]);
+      colorPane.add(cLabels[i]);
       String current = art.getColor().get(i);
       cLabels[i].addMouseListener(new MouseAdapter(){
           public void mouseClicked(MouseEvent me){
@@ -92,14 +108,18 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
           }
         });
     }
+    labelPane.add(colorPane);
     brand = new JLabel("Brand: " + art.getBrand());
-    screen.add(brand);
+    brandPane.add(brand);
+    labelPane.add(brandPane);
     material = new JLabel("Material: " + art.getMaterial());
-    screen.add(material);
+    materialPane.add(material);
+    labelPane.add(materialPane);
     price = new JLabel("Price: " + art.getPrice());
-    screen.add(price);
+    pricePane.add(price);
+    labelPane.add(pricePane);
     dates = new JLabel("Date: ");
-    screen.add(dates);
+    datePane.add(dates);
     JLabel[] dLabels = new JLabel[art.getDates().size()];
     for(int i = 0;i < art.getDates().size();i++){
       if(i < art.getDates().size() - 1){
@@ -108,7 +128,7 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
       else{
         dLabels[i] = new JLabel(art.getDates().get(i));
       }
-      screen.add(dLabels[i]);
+      datePane.add(dLabels[i]);
       String current = art.getDates().get(i);
       dLabels[i].addMouseListener(new MouseAdapter(){
           public void mouseClicked(MouseEvent me){
@@ -117,6 +137,9 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
             dispose();
           }
         });
+      labelPane.add(datePane);
+      containsText.add(labelPane);
+      screen.add(containsText, BorderLayout.CENTER);
     }
 
     category.addMouseListener(new MouseAdapter(){

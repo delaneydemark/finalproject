@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ArticleAddScreen extends Closet implements ActionListener{
   private Container screen;
-    private JPanel labelPane, buttonsPane, containsText, categoryPane, sizePane, occasionPane, colorPane, brandPane, materialPane, pricePane, datePane;
+  private JPanel labelPane, buttonsPane, containsText, categoryPane, sizePane, occasionPane, colorPane, brandPane, materialPane, pricePane, datePane;
   private JButton back, save, uploadImage;
   private JTextField categoryText, sizeText, occasionText, colorText, brandText, materialText, priceText, dateText;
   private JLabel image, categoryLabel, sizeLabel, occasionLabel, colorLabel, brandLabel, materialLabel, priceLabel, dateLabel;
