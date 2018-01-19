@@ -46,6 +46,7 @@ public class ArticleDisplayScreen extends Closet implements ActionListener{
 
     buttonsPane.add(back);
     buttonsPane.add(edit);
+    buttonsPane.setBackground(Color.BLACK);
     screen.add(buttonsPane, BorderLayout.PAGE_START);
 
     //upload image

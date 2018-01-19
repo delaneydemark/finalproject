@@ -51,6 +51,7 @@ public class ArticleAddScreen extends Closet implements ActionListener{
 
     buttonsPane.add(back);
     buttonsPane.add(save);
+    buttonsPane.setBackground(Color.BLACK);
 
 
     //set up upload button to retrieve files

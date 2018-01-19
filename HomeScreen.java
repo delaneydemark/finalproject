@@ -48,6 +48,8 @@ public class HomeScreen extends Closet implements ActionListener{
     buttonsPane.add(filterButton);
     buttonsPane.add(clear);
 
+    buttonsPane.setBackground(Color.BLACK);
+
     screen.add(mainPane,BorderLayout.CENTER);
     screen.add(buttonsPane, BorderLayout.PAGE_START);
 
@@ -140,6 +142,7 @@ public class HomeScreen extends Closet implements ActionListener{
     buttonsPane.add(filterBox);
     buttonsPane.add(filterButton);
     buttonsPane.add(clear);
+    buttonsPane.setBackground(Color.BLACK);
     JLabel filterr = new JLabel("Filtering for: "+ filter);
     JPanel filterrr = new JPanel();
     filterrr.add(filterr);

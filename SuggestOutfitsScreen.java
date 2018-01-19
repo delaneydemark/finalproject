@@ -41,6 +41,7 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
     create.addActionListener(this);
 
     buttonsPane.add(back);
+    buttonsPane.setBackground(Color.BLACK);
     screen.add(buttonsPane, BorderLayout.PAGE_START);
     textPane.add(category);
     textPane.add(categories);
@@ -57,6 +58,7 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
     created = false;
     screen = this.getContentPane();
     buttonsPane = new JPanel(new FlowLayout());
+    buttonsPane.setBackground(Color.BLACK);
     textPane = new JPanel(new FlowLayout());
     photoPane = new JPanel(new FlowLayout());
     main = new JPanel();
@@ -72,6 +74,7 @@ public class SuggestOutfitsScreen extends Closet implements ActionListener{
     create.addActionListener(this);
 
     buttonsPane.add(back);
+    
     screen.add(buttonsPane, BorderLayout.PAGE_START);
     textPane.add(category);
     textPane.add(categories);
